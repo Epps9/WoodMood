@@ -1,17 +1,37 @@
 @import '../../../styles/settings.scss';
 
 .root {
+    position: relative;
     height: 1700px;
     width: 100%;
-    background-image: url('https://images.pexels.com/photos/128639/pexels-photo-128639.jpeg');
-    background-size: cover;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url('https://images.pexels.com/photos/128639/pexels-photo-128639.jpeg');
+        background-size: cover;
+        opacity: 0.78;
+    }
     .topBar {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: black;
         height: 40px;
         padding: 0 10px;
+        .logo {
+            display: flex;
+            align-items: center;
+            .leaf {
+                color: white;
+                font-size: 25px;
+                margin-right: 12px;
+            }
+        }
         button {
             height: 30px;
             width: 12%;
@@ -42,6 +62,7 @@
         }
     }
     .menu {
+        position: relative;
         width: 13%;
         background-color: black;
         margin: 0;

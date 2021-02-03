@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {GiLindenLeaf} from "react-icons/gi";
 
 import clsx from 'clsx';
 
@@ -13,8 +13,10 @@ const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.topBar}>
       <button >MENU</button>
-      <FontAwesomeIcon icon="fas fa-leaf" />      
-      <h1>Wood Mood</h1>
+      <div className={styles.logo}>
+        <GiLindenLeaf className={styles.leaf} />      
+        <h1>Wood Mood</h1>
+      </div>
       <div className={styles.sideOptions}>
         <a href="#">Register</a>
         <a href="#">Log in</a>
