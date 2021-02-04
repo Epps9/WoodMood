@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Carousel from 'react-elastic-carousel';
 
 import clsx from 'clsx';
 
@@ -8,10 +9,14 @@ import clsx from 'clsx';
 
 import styles from './Homepage.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Homepage</h2>
-    {children}
+    <h1>Check out our sales!</h1>
+    <div className={styles.elementsWrapper}>
+        <div>
+          <h2>best quality</h2>
+        </div>
+    </div>
   </div>
 );
 

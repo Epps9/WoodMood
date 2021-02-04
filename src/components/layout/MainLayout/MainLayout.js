@@ -54,6 +54,7 @@ class Component extends React.Component {
           </div>
           :null
           }
+          {children}
         <div className={styles.footer}>
           <div className={styles.info}>
             <a>About us</a>
@@ -64,7 +65,6 @@ class Component extends React.Component {
             <a><FaFacebookSquare className={styles.socialMediaIcon}/></a>
             <a><FaInstagram className={styles.socialMediaIcon}/></a>
             <a><FaLinkedin className={styles.socialMediaIcon}/></a>
-
           </div>
         </div>
       </div>
