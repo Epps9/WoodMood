@@ -1,8 +1,9 @@
 @import '../../../styles/settings.scss';
 
 .root {
+    box-sizing: border-box;
     position: relative;
-    height: 1700px;
+    height: 100vh;
     width: 100%;
     &::before {
         content: '';
@@ -14,6 +15,7 @@
         background-image: url('https://images.pexels.com/photos/128639/pexels-photo-128639.jpeg');
         background-size: cover;
         opacity: 0.78;
+        width: 100%;
     }
     .topBar {
         position: relative;
@@ -32,7 +34,7 @@
                 margin-right: 12px;
             }
         }
-        button {
+        .menuButton {
             height: 30px;
             width: 12%;
             color: white;
@@ -41,7 +43,7 @@
             border: none;
             cursor: grab
         }
-        button:hover {
+        .menuButton:hover {
             background-color: white;
             color: black;
         }
@@ -55,30 +57,78 @@
                 display: flex;
                 color: white;
                 a {
-                    margin: 0 20px;
+                    padding: 0 20px;
                     color: white;
                     text-decoration: none;
+                    display: block;
+                    height: 32px;
+                    padding: 0 auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:hover {
+                        color: black;
+                        background-color: #EACCA7;
+                    } 
                 }
+
+
         }
     }
     .menu {
         position: relative;
+        height: 90%;
         width: 13%;
         background-color: black;
         margin: 0;
         padding: 0;
         padding-bottom: 40px;
+        padding-top: 20px;
             a {
                 color: white;
                 text-decoration: none;
-                display: block;
+                display: flex;
                 padding: 10px 0;
                 border-bottom: grey solid 1px;
                 padding-left: 30px;
             }
             a:first-child {
-                padding-top: 40px;
+                margin-top: 40px;
+            }
+            a:hover {
+                background-color: #EACCA7;
+                color: black;
             }
         }
-    }
+    .footer {
+        position: relative;
+        height: 35%;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .info {
+            color: white;
+            padding-top: 10px;
+            a {
+                padding: 0 60px;
+                color: grey;
+                cursor: grab;
+            }      
+        }
+
+        .socialMedia {
+            margin-top: 40px;
+            .socialMediaIcon {
+                color: grey;
+                font-size: 25px;
+                margin: 0 10px;
+                cursor: grab;
+            }
+        }
+    }    
+}
+
 
