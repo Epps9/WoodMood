@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import clsx from 'clsx';
+
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Header.module.scss';
+import styles from './Product.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Header</h2>
-    {children}
+    <div className={styles.product}>
+      <img src="https://img.pakamera.net/i1/1/971/damskie-12407454_5753832971.jpg"></img>
+      <button>check out</button>
+    </div>
   </div>
 );
 
@@ -31,7 +33,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Header,
-  // Container as Header,
-  Component as HeaderComponent,
+  Component as Product,
+  // Container as Product,
+  Component as ProductComponent,
 };

@@ -1,0 +1,36 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    position: relative;
+    .product {
+        position: relative;
+        height: 400px;
+        width: 400px;
+        background-color: white;
+        margin: 20px;
+        position: relative;
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            position: absolute;
+            top: 305px;
+            left: 115px;
+            height: 10%;
+            width:40%;
+            background-color: $light;
+            color: $mainLight;
+            font-family: $nav-font;
+            border-radius: 5px;
+            border: $light;
+            text-shadow: $depth 2px 2px;
+            box-shadow: #636363  2px 2px;
+            cursor: grab;
+            &:hover {
+                background-color: #737373;
+            }
+        }
+    }
+}

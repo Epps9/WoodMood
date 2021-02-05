@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {GiLindenLeaf} from "react-icons/gi";
 import {FaFacebookSquare, FaInstagram, FaLinkedin} from "react-icons/fa"
+import {Product} from '../../features/Product/Product'
 
 import clsx from 'clsx';
 
@@ -12,19 +13,6 @@ import styles from './MainLayout.module.scss';
 
 class Component extends React.Component {
 
-  constructor() {
-    super ()
-    this.state = {
-      showMe: true,
-    }
-  }
-
-  toggleMenu(){
-    this.setState({
-      showMe: !this.state.showMe
-    })
-  }
-
 
   render() {
 
@@ -33,28 +21,26 @@ class Component extends React.Component {
     return (
       <div className={clsx(className, styles.root)}>
         <div className={styles.topBar}>
-          <button className={styles.menuButton} onClick={() => this.toggleMenu()}>MENU</button>
-          <div className={styles.logo}>
-            <GiLindenLeaf className={styles.leaf} />      
-            <h1>Wood Mood</h1>
+          <div className={styles.topBarContent}>
+            <div className={styles.logo}>
+              <GiLindenLeaf className={styles.leaf} />      
+              <h1>Wood Mood</h1>
+            </div>
+            <div className={styles.sideOptions}>
+              <a href="#">Register</a>
+              <a href="#">Log in</a>
+              <a href="#">Cart</a>
+            </div>
           </div>
-          <div className={styles.sideOptions}>
-            <a href="#">Register</a>
-            <a href="#">Log in</a>
-            <a href="#">Cart</a>
+          <div className={styles.navBar}>
+            <a className={styles.navBarLink}>watches</a>
+            <a className={styles.navBarLink}>bracelets</a>
+            <a className={styles.navBarLink}>other</a>
           </div>
         </div>
-        
-          {this.state.showMe?
-          <div className={styles.menu}>
-            <a href="#">PRODUCTS</a>
-            <a href="#">watches</a>
-            <a href="#">bracelets</a>
-            <a href="#">other</a>
-          </div>
-          :null
-          }
-          {children}
+        <div className={styles.layoutBackground}>
+        {children}
+        </div>
         <div className={styles.footer}>
           <div className={styles.info}>
             <a>About us</a>
