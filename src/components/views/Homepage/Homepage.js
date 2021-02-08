@@ -5,7 +5,7 @@ import {Product} from '../../features/Product/Product'
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Homepage.module.scss';
@@ -15,11 +15,11 @@ class Component extends React.Component {
   render () {
 
     const breakPoints = [
-      {width: 500, itemsToShow: 1},
+      {width: 400, itemsToShow: 1},
       {width: 1200, itemsToShow:3}
     ]
 
-    const {className, children} = this.props;
+    const {className, children, watches} = this.props;
   
     return  (
       <div className={clsx(className, styles.root)}>
@@ -29,12 +29,9 @@ class Component extends React.Component {
             </div>
             <div className={styles.saleProducts}>
               <Carousel breakPoints={breakPoints}>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
+              {watches.map(watch => (
+              <Product key={watch.id} {...watch}/>
+              ))}
               </Carousel>
             </div>
         </div>
@@ -48,18 +45,18 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  watches: state.products.watches,
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Homepage,
-  // Container as Homepage,
+  //Component as Homepage,
+  Container as Homepage,
   Component as HomepageComponent,
 };
