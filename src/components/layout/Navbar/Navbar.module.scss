@@ -1,0 +1,70 @@
+@import '../../../styles/settings.scss';
+
+.topBar {
+    position: relative;
+    background-color: $mainDark;
+    height: 50px;
+    .topBarContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        .leaf {
+            color: $mainLight;
+            font-size: 30px;
+            margin-right: 12px;
+        }
+    }     
+    h1 {
+        font-size: 28px;
+        color: $mainLight;
+        font-family: $logo-font;
+    }
+
+    .sideOptions {
+            display: flex;
+            color: $mainLight;
+            margin-right: 20px;
+            a {
+                padding: 20px;
+                color: $mainLight;
+                text-decoration: none;
+                display: block;
+                height: 32px;
+                padding: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    }
+    .navBar {
+        height: 50px;
+        background-color: $depth;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        .navBarLink {
+            color: $mainLight;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+            font-size: 16px;
+            font-family: $nav-font;
+        }
+        a {
+            padding: 0 40px;
+            cursor: grab;
+            &:hover {
+                color: $mainDark;
+                background-color: #EACCA7;
+            } 
+        }
+    }
+}

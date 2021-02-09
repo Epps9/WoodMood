@@ -52,5 +52,44 @@ export const initialState = {
     bracelets: [
 
     ],
+    promoProducts: [
+      { 
+        id: 1, 
+        image: 'https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg', 
+        price: '40$',
+        newPrice: '20$',
+      }, 
+      { 
+        id: 2, 
+        image: 'https://tmzegarki.pl/wp-content/uploads/2018/11/2520-45aa2b-510x510.jpeg', 
+        price: '30$',
+        newPrice: '15$',
+      }, 
+      { 
+        id: 3, 
+        image: 'https://image.ceneostatic.pl/data/products/95355245/i-imitation-wood-watch-men-women-quartz-imitate-wooden-ostrich-deer-man-wristwatch-soft-leather-band-male-wrist-clock-reloj.jpg', 
+        price: '20$',
+        newPrice: '10$',
+      },
+      { 
+        id: 4, 
+        image: 'https://i.etsystatic.com/5667620/r/il/45b1c9/1543210026/il_794xN.1543210026_nbac.jpg', 
+        price: '40$',
+        newPrice: '20$',
+      }, 
+      { 
+        id: 5, 
+        image: 'https://i.pinimg.com/originals/95/e8/8d/95e88d69b59342ee422fc3b881f5c430.jpg', 
+        price: '30$',
+        newPrice: '15$',
+      }, 
+      { 
+        id: 6, 
+        image: 'https://images-na.ssl-images-amazon.com/images/I/71VMZ2RKLXL._SL1500_.jpg', 
+        price: '20$',
+        newPrice: '10$',
+      }
+
+    ]
   }
 };

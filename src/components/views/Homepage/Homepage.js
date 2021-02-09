@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-elastic-carousel';
-import {Product} from '../../features/Product/Product'
+import {PromoProduct} from '../../features/PromoProduct/PromoProduct'
 
 import clsx from 'clsx';
 
@@ -30,7 +30,7 @@ class Component extends React.Component {
             <div className={styles.saleProducts}>
               <Carousel breakPoints={breakPoints}>
               {watches.map(watch => (
-              <Product key={watch.id} {...watch}/>
+              <PromoProduct key={watch.id} {...watch}/>
               ))}
               </Carousel>
             </div>
@@ -46,7 +46,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  watches: state.products.watches,
+  watches: state.products.promoProducts,
 });
 
 // const mapDispatchToProps = dispatch => ({

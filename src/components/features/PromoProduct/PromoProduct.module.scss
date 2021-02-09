@@ -8,7 +8,6 @@
         width: 400px;
         background-color: white;
         margin: 20px;
-        position: relative;
         img {
             object-fit: cover;
             width: 100%;
@@ -30,7 +29,24 @@
             cursor: grab;
             &:hover {
                 background-color: #737373;
-            }
+            }  
         }
+        h3 {
+            position: absolute;
+            top: 295px;
+            left: 336px;
+            font-size: 20px;
+            color: $depth;
+            font-family: $nav-font;
+            text-decoration: line-through;
+        }
+        h2 {
+            position: absolute;
+            top: 322px;
+            left: 323px;
+            font-family: $nav-font;
+            color: #EA6152;
+            font-size: 2rem;
+        }  
     }
 }

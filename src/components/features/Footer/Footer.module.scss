@@ -1,0 +1,31 @@
+@import '../../../styles/settings.scss';
+
+.footer {
+    position: relative;
+    height: 350px;
+    background-color: $mainDark;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .info {
+        color: $mainLight;
+        a {
+            padding: 0 60px;
+            color: $lightDark;
+            cursor: grab;
+            font-family: $nav-font;
+            font-size: 16px;
+        }      
+    }
+
+    .socialMedia {
+        margin-top: 40px;
+        .socialMediaIcon {
+            color: $lightDark;
+            font-size: 25px;
+            margin: 0 10px;
+            cursor: grab;
+        }
+    }
+}  

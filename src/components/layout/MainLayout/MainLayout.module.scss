@@ -59,10 +59,6 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    &:hover {
-                        color: $mainDark;
-                        background-color: #EACCA7;
-                    } 
                 }
         }
         .navBar {
@@ -76,64 +72,42 @@
                 justify-content: space-around;
                 align-items: center;
                 display: flex;
-                margin: 0 40px;
                 font-size: 16px;
                 font-family: $nav-font;
             }
             a {
+                padding: 0 40px;
                 cursor: grab;
+                &:hover {
+                    color: $mainDark;
+                    background-color: #EACCA7;
+                } 
             }
         }
     }
     .layoutBackground {
         position: relative;
-    height: 100%;
-    width: 90%;
-    margin: 0 auto;
-    font-family: $motto-font;  
-    margin-top: 50px;
-    padding: 40px;
-    padding-bottom: 200px;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: $mainLight;
-        opacity: 0.6;
-        }
-    }
-    .footer {
-        position: relative;
-        height: 350px;
-        background-color: $mainDark;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .info {
-            color: $mainLight;
-            a {
-                padding: 0 60px;
-                color: $lightDark;
-                cursor: grab;
-                font-family: $nav-font;
-                font-size: 16px;
-            }      
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+        font-family: $motto-font;  
+        margin-top: 50px;
+        padding: 40px;
+        padding-bottom: 200px;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $mainLight;
+            opacity: 0.6;
         }
 
-        .socialMedia {
-            margin-top: 40px;
-            .socialMediaIcon {
-                color: $lightDark;
-                font-size: 25px;
-                margin: 0 10px;
-                cursor: grab;
-            }
-        }
-    }    
+    }
+
+    
 }
 
 
