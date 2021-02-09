@@ -6,12 +6,18 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './PostAdd.module.scss';
+import styles from './Product.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>PostAdd</h2>
-    {children}
+    <div className={styles.product}>
+      <img src='https://tmzegarki.pl/wp-content/uploads/2018/11/2520-45aa2b-510x510.jpeg'></img>
+      <h3 className={styles.title}>title title title</h3>
+      <div className={styles.bottomBar}>
+        <h3>price</h3>
+        <button>Add to cart</button>
+      </div>
+    </div>
   </div>
 );
 
@@ -31,7 +37,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as PostAdd,
-  // Container as PostAdd,
-  Component as PostAddComponent,
+  Component as Product,
+  // Container as Product,
+  Component as ProductComponent,
 };

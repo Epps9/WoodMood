@@ -4,6 +4,7 @@ import {PromoProduct} from '../../features/PromoProduct/PromoProduct';
 import {Footer} from '../../features/Footer/Footer';
 import {Navbar} from '../Navbar/Navbar';
 import {CartBox} from '../../features/CartBox/CartBox';
+import {ProductList} from '../../views/ProductList/ProductList'
 
 
 import clsx from 'clsx';
@@ -25,7 +26,7 @@ class Component extends React.Component {
         <Navbar/>
         <div className={styles.layoutBackground}>
         <CartBox/>
-        {children}
+        <ProductList/>
         </div>
         <Footer/>
       </div>

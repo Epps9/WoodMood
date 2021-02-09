@@ -1,17 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Product} from '../../features/Product/Product'
 
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Post.module.scss';
+import styles from './ProductList.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Post</h2>
-    {children}
+    <Product/>
+    <Product/>
+    <Product/>
+    <Product/>
+    <Product/>
+    <Product/>
+    <Product/>
+    <Product/>
   </div>
 );
 
@@ -31,7 +38,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Post,
-  // Container as Post,
-  Component as PostComponent,
+  Component as ProductList,
+  // Container as ProductList,
+  Component as ProductListComponent,
 };
