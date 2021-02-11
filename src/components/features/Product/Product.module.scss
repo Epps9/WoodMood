@@ -7,7 +7,6 @@
     background-color: $light;
     margin: 20px;
     img {
-        background-color: violet;
         height: 80%;
         width: 100%;
     }
@@ -23,6 +22,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    h3 {
+        color: $mainDark;
+    }
     button {
         width: 40%;
         height: 30px;

@@ -22,7 +22,7 @@ export const initialState = {
       { 
         id: 4, 
         title: 'Wooden watch – chestnut', 
-        image: 'https://i2.wp.com/oldyouth.co.uk/wp-content/uploads/2020/04/Untitled-design-1.jpg', 
+        image: 'https://plantwear.pl/wp-content/uploads/produkt-swieta-0002-1.jpg', 
         price:  '45$'
       }, 
       { 
@@ -50,6 +50,53 @@ export const initialState = {
       }
     ],
     bracelets: [
+      {
+        id: 1, 
+        title: 'Freya', 
+        image: 'https://i.etsystatic.com/5667620/r/il/45b1c9/1543210026/il_794xN.1543210026_nbac.jpg', 
+        price: '5$'
+      },
+      { 
+        id: 2, 
+        title: 'Classic', 
+        image: 'https://5.imimg.com/data5/SK/MO/MY-3026346/leather-mens-bracelets-500x500.jpg', 
+        price: '10$'
+      }, 
+      { 
+        id: 3, 
+        title: 'Noya', 
+        image: 'https://images-na.ssl-images-amazon.com/images/I/71VMZ2RKLXL._SL1500_.jpg', 
+        price: '12$'
+      }, 
+      { 
+        id: 4, 
+        title: 'Oriental', 
+        image: 'https://cdn.shopify.com/s/files/1/1464/1370/products/bracelet24x1024.jpg', 
+        price:  '20$'
+      }, 
+      { 
+        id: 5, 
+        title: 'Leaf', 
+        image: 'https://i.pinimg.com/originals/98/44/ec/9844ec091e703f40406f9fbb90fb3808.jpg', price:  '16$'
+      }, 
+      { 
+        id: 6, 
+        title: 'Ancient', 
+        image: 'https://www.ross-simons.com/dw/image/v2/BCFL_PRD/on/demandware.static/-/Sites-lbh-master/default/dwcee869cf/images/jewelry-bracelets/908729.jpg', 
+        price: '40$'
+      }, 
+      { 
+        id: 7, 
+        title: 'Ivory', 
+        image: 'https://assets.stephendavidleonard.com/media/catalog/product/cache/4a732fca5f83f12c50aac9c7dbe07a8a/s/d/sdl_sbr0010_br-si_1.jpg', 
+        price: '30$'
+      }, 
+      { 
+        id: 8, 
+        title: 'Rock', 
+        image: 'https://images-na.ssl-images-amazon.com/images/I/61hOQ6WQz%2BL._UX500_.jpg', 
+        price: '20$'
+      }
 
     ],
     promoProducts: [
@@ -79,7 +126,7 @@ export const initialState = {
       }, 
       { 
         id: 5, 
-        image: 'https://i.pinimg.com/originals/95/e8/8d/95e88d69b59342ee422fc3b881f5c430.jpg', 
+        image: 'https://5.imimg.com/data5/SK/MO/MY-3026346/leather-mens-bracelets-500x500.jpg', 
         price: '30$',
         newPrice: '15$',
       }, 

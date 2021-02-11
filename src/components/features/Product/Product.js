@@ -8,13 +8,13 @@ import clsx from 'clsx';
 
 import styles from './Product.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({className, image, title, price}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
-      <img src='https://tmzegarki.pl/wp-content/uploads/2018/11/2520-45aa2b-510x510.jpeg'></img>
-      <h3 className={styles.title}>title title title</h3>
+      <img src={image}></img>
+      <h3 className={styles.title}>{title}</h3>
       <div className={styles.bottomBar}>
-        <h3>price</h3>
+        <h3>{price}</h3>
         <button>Add to cart</button>
       </div>
     </div>
@@ -22,12 +22,14 @@ const Component = ({className, children}) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
+//   watches: state.products.watches,
 // });
 
 // const mapDispatchToProps = dispatch => ({

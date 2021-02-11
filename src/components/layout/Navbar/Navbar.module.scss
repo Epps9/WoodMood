@@ -12,6 +12,9 @@
         padding: 0;
         height: 100%;
     }
+    .link {
+        text-decoration: none;
+    }
     .logo {
         display: flex;
         align-items: center;
@@ -57,14 +60,13 @@
             display: flex;
             font-size: 16px;
             font-family: $nav-font;
-        }
-        a {
             padding: 0 40px;
+            text-decoration: none;
             cursor: grab;
-            &:hover {
-                color: $mainDark;
-                background-color: #EACCA7;
-            } 
+                &:hover {
+                    color: $mainDark;
+                    background-color: #EACCA7;
+                } 
         }
     }
 }
