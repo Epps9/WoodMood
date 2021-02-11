@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import clsx from 'clsx';
 
@@ -8,11 +9,13 @@ import clsx from 'clsx';
 
 import styles from './Product.module.scss';
 
-const Component = ({className, image, title, price}) => (
+const Component = ({className, image, title, price, id}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
-      <img src={image}></img>
-      <h3 className={styles.title}>{title}</h3>
+      <Link to={`/watches/${id}`} className={styles.link}>
+        <img src={image}></img>
+        <h3 className={styles.title}>{title}</h3>
+      </Link>
       <div className={styles.bottomBar}>
         <h3>{price}</h3>
         <button>Add to cart</button>

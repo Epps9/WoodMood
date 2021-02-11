@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
-import { reducer as watchesReducer } from './postsRedux';
+import { reducer as watchesReducer } from './productsRedux';
 
 // define reducers
 const reducers = {

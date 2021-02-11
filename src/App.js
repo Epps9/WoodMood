@@ -11,6 +11,8 @@ import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 import { Watches } from './components/views/Watches/Watches';
 import { Bracelets } from './components/views/Bracelets/Bracelets';
+import { ProductView } from './components/views/ProductView/ProductView';
+
 
 
 const theme = createMuiTheme({
@@ -30,6 +32,8 @@ const App = () => (
               <Route exact path='/' component={Homepage} />
               <Route exact path='/watches' component={Watches} />
               <Route exact path='/bracelets' component={Bracelets} />
+              <Route exact path='/productview' component={ProductView} />
+              <Route exact path='/watches/:id' component={ProductView} />
             </Switch>
           </MainLayout>
         </ThemeProvider>

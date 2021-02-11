@@ -1,5 +1,11 @@
 /* selectors */
 export const getAll = ({products}) => products.watches;
+export const getOneWatch = ({products}, id) => {
+  const chosenProduct = products.watches.filter(item => item.id == id);
+  console.log('coto jest id', chosenProduct);
+  return chosenProduct;
+}
+
 
 /* action name creator */
 const reducerName = 'posts';

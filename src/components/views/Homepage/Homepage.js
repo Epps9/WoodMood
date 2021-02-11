@@ -19,7 +19,7 @@ class Component extends React.Component {
       {width: 1200, itemsToShow:3}
     ]
 
-    const {className, children, watches} = this.props;
+    const {className, watches} = this.props;
   
     return  (
       <div className={clsx(className, styles.root)}>

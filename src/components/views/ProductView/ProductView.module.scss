@@ -1,0 +1,43 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    position: relative;
+    text-align: center;
+    display: flex;
+    margin: 100px 115px 200px 115px;
+    background-color: $mainLight;
+    img {
+        height: 40%;
+        width: 40%;
+        margin: 100px;
+    }
+    .contentWrapper {
+        margin: 100px;
+        h2, h1 {
+            font-family: $nav-font;
+            font-size: 30px;
+            text-align: start;
+        }
+        p {
+            font-family: $nav-font;
+            font-size: 12px;
+            text-align: justify;
+            margin: 100px 0;
+        }
+        button {
+            width: 100%;
+            height: 12%;
+            background-color: $warm;
+            border: none;
+            font-size: 20px;
+            font-family: $nav-font;
+            border-radius: 5px;
+            box-shadow: 1px 1px $lightDark;
+            &:hover {
+                background-color: $depth;
+                color: $mainLight;
+            }
+        }
+    }
+}
+
