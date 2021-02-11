@@ -11,8 +11,7 @@ class Component extends React.Component
 
   render() {
 
-    const {title, image, description, price} = this.props
-    console.log('co to jest props watch', this.props.watch.title)
+    const {title, image, description, price} = this.props.watch[0];
     return (
       <div className={styles.root}>
         <img src={image}></img>
