@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Product} from '../../features/Product/Product';
+import {Bracelet} from '../../features/Bracelet/Bracelet';
 
 import clsx from 'clsx';
 
@@ -12,9 +12,8 @@ import styles from './Bracelets.module.scss';
 const Component = ({className, bracelets}) => (
   <div className={clsx(className, styles.root)}>
     {bracelets.map( item => (
-      <Product key={item.id} {...item}/>
+      <Bracelet key={item.id} {...item}/>
     ))}
-
   </div>
 );
 

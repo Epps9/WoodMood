@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { getOneWatch } from '../../../redux/productsRedux.js';
+import { getOneBracelet } from '../../../redux/productsRedux.js';
 
-import styles from './ProductView.module.scss';
+import styles from './BraceletView.module.scss';
 
 class Component extends React.Component
 {
+  
+
 
   render() {
 
-    const {title, image, description, price} = this.props.watch[0];
+    const {title, image, description, price} = this.props.bracelet[0];
+  
     return (
       <div className={styles.root}>
         <img src={image}></img>
@@ -19,6 +22,11 @@ class Component extends React.Component
           <h2>{title}</h2>
           <h1>{price}</h1>
           <p>{description}</p>
+          <div className={styles.amount}>
+            <button>-</button>
+            <input defaultValue='1'></input>
+            <button>+</button>
+          </div>
           <button>Add to cart</button>
         </div>
       </div>
@@ -27,11 +35,11 @@ class Component extends React.Component
 }
 
 Component.propTypes = {
-  watch: PropTypes.node,
+  bracelet: PropTypes.node,
 };
 
 const mapStateToProps = (state, props) => ({
-  watch: getOneWatch(state, props.match.params.id),
+  bracelet: getOneBracelet(state, props.match.params.id),
 });
 
 // const mapDispatchToProps = dispatch => ({
@@ -42,6 +50,6 @@ const Container = connect(mapStateToProps)(Component);
 
 export {
   //Component as ProductView,
-  Container as ProductView,
-  Component as ProductViewComponent,
+  Container as BraceletView,
+  Component as BraceletViewComponent,
 };

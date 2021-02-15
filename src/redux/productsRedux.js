@@ -5,6 +5,11 @@ export const getOneWatch = ({products}, id) => {
   console.log('coto jest id', chosenProduct);
   return chosenProduct;
 }
+export const getOneBracelet = ({products}, id) => {
+  const chosenProduct = products.bracelets.filter(item => item.id == id);
+  console.log('coto jest id bracelet', chosenProduct);
+  return chosenProduct;
+}
 
 
 /* action name creator */

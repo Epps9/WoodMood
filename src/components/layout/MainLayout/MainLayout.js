@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {PromoProduct} from '../../features/PromoProduct/PromoProduct';
 import {Footer} from '../../features/Footer/Footer';
 import {Navbar} from '../Navbar/Navbar';
 import {CartBox} from '../../features/CartBox/CartBox';

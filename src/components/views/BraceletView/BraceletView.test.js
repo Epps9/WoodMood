@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ProductViewComponent } from './ProductView';
+import { ProductViewComponent } from './WatchView';
 
 describe('Component ProductView', () => {
   it('should render without crashing', () => {

@@ -42,7 +42,12 @@
             align-items: center;
         }
     }
-    button {
+    .cartLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: $mainDark;
         background-color: $mainLight;
         margin: 30px;
         width: 60%;

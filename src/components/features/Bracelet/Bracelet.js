@@ -7,12 +7,12 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Product.module.scss';
+import styles from './Bracelet.module.scss';
 
-const Component = ({className, image, title, price, id, name}) => (
+const Component = ({className, image, title, price, id}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
-      <Link to={`/watches/${id}`} className={styles.link}>
+      <Link to={`/bracelets/${id}`} className={styles.link}>
         <img src={image}></img>
         <h3 className={styles.title}>{title}</h3>
       </Link>
@@ -42,7 +42,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Product,
+  Component as Bracelet,
   // Container as Product,
-  Component as ProductComponent,
+  Component as BraceletComponent,
 };

@@ -11,7 +11,10 @@ import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 import { Watches } from './components/views/Watches/Watches';
 import { Bracelets } from './components/views/Bracelets/Bracelets';
-import { ProductView } from './components/views/ProductView/ProductView';
+import { WatchView } from './components/views/WatchView/WatchView';
+import { BraceletView } from './components/views/BraceletView/BraceletView';
+import { Cart } from './components/views/Cart/Cart';
+import { Order } from './components/views/Order/Order';
 
 
 
@@ -32,8 +35,10 @@ const App = () => (
               <Route exact path='/' component={Homepage} />
               <Route exact path='/watches' component={Watches} />
               <Route exact path='/bracelets' component={Bracelets} />
-              <Route exact path='/productview' component={ProductView} />
-              <Route exact path='/watches/:id' component={ProductView} />
+              <Route exact path='/watches/:id' component={WatchView} />
+              <Route exact path='/bracelets/:id' component={BraceletView} />
+              <Route exact path='/cart' component={Cart} />
+              <Route exact path='/order' component={Order} />
             </Switch>
           </MainLayout>
         </ThemeProvider>

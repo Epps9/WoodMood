@@ -21,7 +21,7 @@ const Component = () => (
       <div className={styles.sideOptions}>
         <Link to='/'>Register</Link>
         <Link to='/'> Log in</Link>
-        <Link to='/' className={styles.cart}>Cart</Link>
+        <Link to='/cart' className={styles.cartCart}>Cart</Link>
       </div>
     </div>
     <div className={styles.navBar}>

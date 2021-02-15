@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 
 // import { connect } from 'react-redux';
@@ -19,7 +20,7 @@ const Component = () => (
         <h4>your watch</h4>
         <p>20$</p>
       </div>
-      <button>See cart</button>
+      <Link to='/cart' className={styles.cartLink}>See cart</Link>
   </div>
 );
 

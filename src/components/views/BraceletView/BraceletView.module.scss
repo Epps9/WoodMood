@@ -39,6 +39,17 @@
                 color: $mainLight;
             }
         }
+        .amount {
+            margin: 50px 0;
+            display: flex;
+            button {
+                width: 30px;
+            }
+            input {
+                width: 30px;
+                text-align: center;
+            }
+        }
     }
 }
 
