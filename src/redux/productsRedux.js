@@ -10,6 +10,7 @@ export const getOneBracelet = ({products}, id) => {
   console.log('coto jest id bracelet', chosenProduct);
   return chosenProduct;
 }
+export const getOnePromo = ({products}, id) => products.promoProducts.filter(item => item.id == id);
 
 
 /* action name creator */

@@ -45,33 +45,35 @@ const Component = ({className, children}) => (
             </div>
         </div> 
         <h2>Shipping</h2>
-        <div className={styles.ShippingMethod}>
+        <div className={styles.shipping}>
+          <div className={styles.shippingMethod}>
               <label> InPost - 5$
                 <input type='checkbox'></input>
               </label>
           </div>
-          <div className={styles.paymentMethod}>
+            <div className={styles.shippingMethod}>
               <label> Courier - 7$
                 <input type='checkbox'></input>
               </label>
             </div>
-            <div className={styles.paymentMethod}>
+            <div className={styles.shippingMethod}>
               <label> Post - 3$
                 <input type='checkbox'></input>
               </label>
             </div>
+          </div>  
      </div>
     <div className={styles.right}>
       <div className={styles.orderSumUp}>
         <div className={styles.product}>
           <img/>
           <p>watch</p>
-          <p>50$</p>
+          <h3>50$</h3>
         </div>
         <div className={styles.product}>
           <img/>
           <p>watch</p>
-          <p>50$</p>
+          <h3>50$</h3>
         </div>
         <button>Order</button>
       </div>

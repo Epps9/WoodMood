@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import {Link} from 'react-router-dom';
 
 //import { connect } from 'react-redux';
 
@@ -8,11 +9,11 @@ import clsx from 'clsx';
 
 import styles from './PromoProduct.module.scss';
 
-const Component = ({className, image, price, newPrice}) => (
+const Component = ({className, image, price, newPrice, id}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
       <img src={image}></img>
-      <button>check out</button>
+      <Link to={`/promo/${id}`}><button>check out</button></Link>
       <h3>{price}</h3>
       <h2>{newPrice}</h2>
     </div>
@@ -25,6 +26,7 @@ Component.propTypes = {
   image: PropTypes.string,
   price: PropTypes.string,
   newPrice: PropTypes.string,
+  id: PropTypes.number,
 };
 
 //const mapStateToProps = state => ({

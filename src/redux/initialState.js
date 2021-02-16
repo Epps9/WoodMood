@@ -120,41 +120,51 @@ export const initialState = {
     promoProducts: [
       { 
         id: 1, 
+        title: 'Walnut',
         image: 'https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg', 
         price: '40$',
         newPrice: '20$',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
         id: 2, 
+        title: 'Pine',
         image: 'https://tmzegarki.pl/wp-content/uploads/2018/11/2520-45aa2b-510x510.jpeg', 
         price: '30$',
         newPrice: '15$',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
         id: 3, 
+        title: 'Oak',
         image: 'https://image.ceneostatic.pl/data/products/95355245/i-imitation-wood-watch-men-women-quartz-imitate-wooden-ostrich-deer-man-wristwatch-soft-leather-band-male-wrist-clock-reloj.jpg', 
         price: '20$',
         newPrice: '10$',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       },
       { 
         id: 4, 
+        title: 'Indian',
         image: 'https://i.etsystatic.com/5667620/r/il/45b1c9/1543210026/il_794xN.1543210026_nbac.jpg', 
         price: '40$',
         newPrice: '20$',
       }, 
       { 
         id: 5, 
+        title: 'Worrior',
         image: 'https://5.imimg.com/data5/SK/MO/MY-3026346/leather-mens-bracelets-500x500.jpg', 
         price: '30$',
         newPrice: '15$',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
         id: 6, 
+        title: 'Hippie',
         image: 'https://images-na.ssl-images-amazon.com/images/I/71VMZ2RKLXL._SL1500_.jpg', 
         price: '20$',
         newPrice: '10$',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }
-
     ]
   }
 };

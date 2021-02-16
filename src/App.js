@@ -15,6 +15,8 @@ import { WatchView } from './components/views/WatchView/WatchView';
 import { BraceletView } from './components/views/BraceletView/BraceletView';
 import { Cart } from './components/views/Cart/Cart';
 import { Order } from './components/views/Order/Order';
+import { PromoView } from './components/views/PromoView/PromoView';
+
 
 
 
@@ -37,6 +39,7 @@ const App = () => (
               <Route exact path='/bracelets' component={Bracelets} />
               <Route exact path='/watches/:id' component={WatchView} />
               <Route exact path='/bracelets/:id' component={BraceletView} />
+              <Route exact path='/promo/:id' component={PromoView} />
               <Route exact path='/cart' component={Cart} />
               <Route exact path='/order' component={Order} />
             </Switch>
