@@ -1,0 +1,29 @@
+@import '../../../styles/settings.scss';
+
+.singleProduct {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $light;
+    display: flex;
+      .centreElements, .endElements {
+          display: flex;
+          flex-direction: column;
+          margin: auto 0;
+      }
+      .centreElements {
+          margin-left: 20px;
+          margin-right: auto;
+          h3 {
+              margin: 20px 0 5px 0;
+          }
+          select {
+              width: 40px;
+              margin: 20px 0;
+              text-align: left;
+          }
+      }
+      .endElements {
+          div, p {
+              margin: 15px 20px;
+          }
+      }
+  }

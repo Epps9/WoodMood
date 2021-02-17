@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {SingleOrderProduct} from '../../features/SingleOrderProduct/SingleOrderProduct';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Order.module.scss';
+import { SingleCartProduct } from '../../features/SingleCartProduct/SingleCartProduct';
 
-const Component = ({className, children}) => (
+const Component = ({className, cartProducts}) => (
 <div className={clsx(className, styles.root)}>
     <div className={styles.left}>
         <form className={styles.orderForm}>
@@ -65,15 +67,12 @@ const Component = ({className, children}) => (
      </div>
     <div className={styles.right}>
       <div className={styles.orderSumUp}>
-        <div className={styles.product}>
-          <img/>
-          <p>watch</p>
-          <h3>50$</h3>
-        </div>
-        <div className={styles.product}>
-          <img/>
-          <p>watch</p>
-          <h3>50$</h3>
+        {cartProducts.map(item => (
+          <SingleOrderProduct key={item.id} {...item} />
+        ))}
+        <div className={styles.total}>
+        <h1>TOTAL</h1>
+        <h1>80$</h1>
         </div>
         <button>Order</button>
       </div>
@@ -86,18 +85,18 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  cartProducts: state.cart,
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Order,
-  // Container as Order,
+  //Component as Order,
+  Container as Order,
   Component as OrderComponent,
 };

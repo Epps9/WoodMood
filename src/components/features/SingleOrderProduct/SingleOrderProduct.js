@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
+
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './AddButton.module.scss';
+import styles from './SingleOrderProduct.module.scss';
 
-const Component = () => (
-  <div className={styles.root}>
-    <button>-</button>
-    <input defaultValue='1'></input>
-    <button>+</button>
-  </div>
+const Component = ({image, title, price}) => (
+  <div className={styles.product}>
+    <img src={image}/>
+    <p>{title}</p>
+    <h3>{price}</h3>
+</div>
 );
 
 Component.propTypes = {
@@ -31,7 +31,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as AddButton,
-  // Container as AddButton,
-  Component as AddButtonComponent,
+  Component as SingleOrderProduct,
+  // Container as SingleOrderProduct,
+  Component as SingleOrderProductComponent,
 };

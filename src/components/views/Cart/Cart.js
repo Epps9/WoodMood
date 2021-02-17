@@ -1,42 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {AddButton} from '../../features/AddButton/AddButton';
 import {Link} from 'react-router-dom';
-import {FaTrashAlt} from 'react-icons/fa';
+
+import { SingleCartProduct} from '../../features/SingleCartProduct/SingleCartProduct';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Cart.module.scss';
 
-const Component = ({className}) => (
+const Component = ({cartProducts, className}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.left}>
         <h2>Twój koszyk</h2>
-        <div className={styles.singleProduct}>
-          <img/>
-          <div className={styles.centreElements}>
-            <h3>Jeasny</h3>
-            <AddButton/>
-          </div>
-          <div className={styles.endElements}>
-            <div><FaTrashAlt/></div>
-            <p>price</p>
-          </div>
-        </div>
-        <div className={styles.singleProduct}>
-          <img/>
-          <div className={styles.centreElements}>
-            <h3>Jeasny</h3>
-            <AddButton/>
-          </div>
-          <div className={styles.endElements}>
-            <div><FaTrashAlt/></div>
-            <p>price</p>
-          </div>
-        </div>
+        {cartProducts.map(item => (
+          <SingleCartProduct key={item.id} {...item} />
+        ))}
     </div>
     <div className={styles.right}>
       <div className={styles.priceElement}>
@@ -61,18 +42,18 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  cartProducts: state.cart,
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Cart,
-  // Container as Cart,
+  //Component as Cart,
+  Container as Cart,
   Component as CartComponent,
 };

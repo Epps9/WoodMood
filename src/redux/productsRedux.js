@@ -14,52 +14,32 @@ export const getOnePromo = ({products}, id) => products.promoProducts.filter(ite
 
 
 /* action name creator */
-const reducerName = 'posts';
+const reducerName = 'watches';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const FETCH_START = createActionName('FETCH_START');
 const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
+const ADD_PRODUCT = createActionName('ADD_PRODUCT');
 
 /* action creators */
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
+export const addProductToCart = payload => ({payload, type: ADD_PRODUCT})
+
 /* thunk creators */
 
 /* reducer */
-export const reducer = (statePart = [], action = {}) => {
+export const reducer = (statePart = {}, action = {}) => {
   switch (action.type) {
-    case FETCH_START: {
+    case ADD_PRODUCT: 
       return {
         ...statePart,
-        loading: {
-          active: true,
-          error: false,
-        },
+        cart: action.payload,
       };
-    }
-    case FETCH_SUCCESS: {
-      return {
-        ...statePart,
-        loading: {
-          active: false,
-          error: false,
-        },
-        data: action.payload,
-      };
-    }
-    case FETCH_ERROR: {
-      return {
-        ...statePart,
-        loading: {
-          active: false,
-          error: action.payload,
-        },
-      };
-    }
     default:
       return statePart;
   }

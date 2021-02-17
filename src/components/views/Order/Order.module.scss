@@ -54,28 +54,15 @@
     .right {
         width: 30%;
         background-color: $warm;
-        padding: 30px;
+        padding: 24px;
         .orderSumUp {
             height: 100%;
             width: 100%;
-            .product {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                grid-gap: 10px;
-                margin-bottom: 10px;
-                margin-right: 10px;
-                img {
-                    height: 100px;
-                    width: 100px;
-                    background-color: black;
-                }
-            }
             button {
-                height: 60px;
+                height: 88px;
                 width: 100%;
-                margin: 50px 0;
-                font-size: 25px;
+                padding: 30px;
+                font-size: 20px;
                 font-family: $nav-font;
                 background-color: $lucid;
                 border: none;
@@ -84,6 +71,12 @@
                     background-color: $depth;
                     color: $lucid;
                 }
+
+            }
+            .total {
+                display: flex;
+                justify-content: space-between;
+                margin: 50px 0;
             }
         }
     }
