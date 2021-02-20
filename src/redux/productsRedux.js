@@ -33,7 +33,7 @@ export const addProductToCart = payload => ({payload, type: ADD_PRODUCT})
 /* thunk creators */
 
 /* reducer */
-export const reducer = (statePart = {}, action = {}) => {
+export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
     case ADD_PRODUCT: 
       return {
