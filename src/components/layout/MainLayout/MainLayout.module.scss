@@ -17,17 +17,20 @@
         opacity: 0.78;
         width: 100%;
     }
-    .topBar {
+    .top__bar {
         position: relative;
         background-color: $mainDark;
         height: 50px;
-        .topBarContent {
+        .top__bar__content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 0;
             padding: 0;
             height: 100%;
+            .link {
+                text-decoration: none;
+            }
         }
         .logo {
             display: flex;
@@ -45,7 +48,7 @@
             font-family: $logo-font;
         }
 
-        .sideOptions {
+        .side__options {
                 display: flex;
                 color: $mainLight;
                 margin-right: 20px;
@@ -61,13 +64,13 @@
                     align-items: center;
                 }
         }
-        .navBar {
+        .nav {
             height: 50px;
             background-color: $depth;
             position: relative;
             display: flex;
             justify-content: center;
-            .navBarLink {
+            .nav__link {
                 text-decoration: none;
                 color: $mainLight;
                 justify-content: space-around;
@@ -86,7 +89,7 @@
             }
         }
     }
-    .layoutBackground {
+    .layout__background {
         position: relative;
         height: 100%;
         width: 90%;
@@ -108,7 +111,7 @@
     }  
 }
 
-.cartBox {
+.cartbox {
     width: 250px;
     height: auto;
     background-color: $mainDark;
@@ -118,7 +121,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .productBox {
+    .cartbox__product {
         width: 100%;
         height: 80px;
         display: grid;
@@ -150,7 +153,7 @@
             align-items: center;
         }
     }
-    .cartLink {
+    .cartlink {
         display: flex;
         justify-content: center;
         align-items: center;

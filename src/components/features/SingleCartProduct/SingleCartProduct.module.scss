@@ -4,12 +4,12 @@
     margin-bottom: 20px;
     border-bottom: 1px solid $light;
     display: flex;
-      .centreElements, .endElements {
+      .centre__elements, .end__elements {
           display: flex;
           flex-direction: column;
           margin: auto 0;
       }
-      .centreElements {
+      .centre__elements {
           margin-left: 20px;
           margin-right: auto;
           h3 {
@@ -21,7 +21,7 @@
               text-align: left;
           }
       }
-      .endElements {
+      .end__elements {
           div, p {
               margin: 15px 20px;
           }

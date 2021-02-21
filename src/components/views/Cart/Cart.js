@@ -20,15 +20,15 @@ const Component = ({cartProducts, className}) => (
         ))}
     </div>
     <div className={styles.right}>
-      <div className={styles.priceElement}>
+      <div className={styles.price__element}>
         <h3>products price</h3>
         <h3>50$</h3>
       </div>
-      <div className={styles.priceElement}>
+      <div className={styles.price__element}>
         <h3>shipping price</h3>
         <h3>10$</h3>
       </div>
-      <div className={styles.priceElement}>
+      <div className={styles.price__element}>
         <h2>total price</h2>
         <h2>40$</h2>
       </div>

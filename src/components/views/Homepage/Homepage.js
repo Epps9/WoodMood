@@ -23,7 +23,7 @@ class Component extends React.Component {
   
     return  (
       <div className={clsx(className, styles.root)}>
-        <div className={styles.elementsWrapper}>
+        <div className={styles.elements__wrapper }>
             <div className={styles.title}>
               <h1>Check out our sales!</h1>
             </div>

@@ -40,41 +40,41 @@ class Component extends React.Component {
     return (
       <div className={clsx(className, styles.root)}>
 
-        <div className={styles.topBar}>
-          <div className={styles.topBarContent}>
+        <div className={styles.top__bar}>
+          <div className={styles.top__bar__content}>
             <Link to='/' className={styles.link}>
               <div className={styles.logo}>
                 <GiLindenLeaf className={styles.leaf} />      
                 <h1>Wood Mood</h1>
               </div>
             </Link>
-            <div className={styles.sideOptions}>
+            <div className={styles.side__options}>
               <Link to='/'>Register</Link>
               <Link to='/'> Log in</Link>
               <Link to='/cart' className={styles.cartCart} onMouseEnter={this.handleMouseHover}>Cart</Link>
             </div>
           </div>
-          <div className={styles.navBar}>
-            <Link to='/watches' className={styles.navBarLink}>watches</Link>
-            <Link to='/bracelets' className={styles.navBarLink}>bracelets</Link>
-            <Link to='/other' className={styles.navBarLink}>other</Link>
+          <div className={styles.nav}>
+            <Link to='/watches' className={styles.nav__link}>watches</Link>
+            <Link to='/bracelets' className={styles.nav__link}>bracelets</Link>
+            <Link to='/other' className={styles.nav__link}>other</Link>
           </div>
         </div>
-        <div className={styles.layoutBackground}>
+        <div className={styles.layout__background}>
         {this.state.hover && 
         
-          <div className={styles.cartBox} onMouseLeave={this.handleMouseHover}>
-            <div className={styles.productBox}>
+          <div className={styles.cartbox} onMouseLeave={this.handleMouseHover}>
+            <div className={styles.cartbox__product}>
             <img src='https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg'></img>
             <h4>your watch</h4>
             <p>20$</p>
             </div>
-            <div className={styles.productBox}>
+            <div className={styles.cartbox__product}>
               <img src='https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg'></img>
               <h4>your watch</h4>
               <p>20$</p>
             </div>
-          <Link to='/cart' className={styles.cartLink}>See cart</Link>
+          <Link to='/cart' className={styles.cartlink}>See cart</Link>
           </div>
 
         }

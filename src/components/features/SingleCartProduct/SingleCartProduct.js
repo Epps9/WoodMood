@@ -11,7 +11,7 @@ import styles from './SingleCartProduct.module.scss';
 const Component = ({title, image, price}) => (
   <div className={styles.singleProduct}>
   <img src={image}/>
-  <div className={styles.centreElements}>
+  <div className={styles.centre__elements}>
     <h3>{title}</h3>
     <select>
       <option>1</option>
@@ -26,7 +26,7 @@ const Component = ({title, image, price}) => (
       <option>9</option>
     </select>
   </div>
-  <div className={styles.endElements}>
+  <div className={styles.end__elements}>
     <div><FaTrashAlt/></div>
     <p>{price}</p>
   </div>

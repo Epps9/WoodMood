@@ -13,7 +13,7 @@ import { SingleCartProduct } from '../../features/SingleCartProduct/SingleCartPr
 const Component = ({className, cartProducts}) => (
 <div className={clsx(className, styles.root)}>
     <div className={styles.left}>
-        <form className={styles.orderForm}>
+        <form className={styles.order__form}>
           <h2>Delivery Details</h2>
           <div className={styles.content}>
             <input type='text' placeholder='name'></input>
@@ -30,17 +30,17 @@ const Component = ({className, cartProducts}) => (
         </form>
         <h2>Payment Methods</h2>
         <div className={styles.payment}>
-          <div className={styles.paymentMethod}>
+          <div className={styles.payment__method}>
               <label> Credit Card
                 <input type='checkbox'></input>
               </label>
           </div>
-          <div className={styles.paymentMethod}>
+          <div className={styles.payment__method}>
               <label> Online Transfer
                 <input type='checkbox'></input>
               </label>
             </div>
-            <div className={styles.paymentMethod}>
+            <div className={styles.payment__method}>
               <label> Traditional Transfer
                 <input type='checkbox'></input>
               </label>
@@ -48,17 +48,17 @@ const Component = ({className, cartProducts}) => (
         </div> 
         <h2>Shipping</h2>
         <div className={styles.shipping}>
-          <div className={styles.shippingMethod}>
+          <div className={styles.shipping__method}>
               <label> InPost - 5$
                 <input type='checkbox'></input>
               </label>
           </div>
-            <div className={styles.shippingMethod}>
+            <div className={styles.shipping__method}>
               <label> Courier - 7$
                 <input type='checkbox'></input>
               </label>
             </div>
-            <div className={styles.shippingMethod}>
+            <div className={styles.shipping__method}>
               <label> Post - 3$
                 <input type='checkbox'></input>
               </label>
@@ -66,7 +66,7 @@ const Component = ({className, cartProducts}) => (
           </div>  
      </div>
     <div className={styles.right}>
-      <div className={styles.orderSumUp}>
+      <div className={styles.order__total}>
         {cartProducts.map(item => (
           <SingleOrderProduct key={item.id} {...item} />
         ))}

@@ -16,7 +16,7 @@ const Component = ({className, image, title, price, id}) => (
         <img src={image}></img>
         <h3 className={styles.title}>{title}</h3>
       </Link>
-      <div className={styles.bottomBar}>
+      <div className={styles.bottom__bar}>
         <h3>{price}</h3>
         <button>Add to cart</button>
       </div>

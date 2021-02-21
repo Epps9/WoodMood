@@ -18,7 +18,7 @@ class Component extends React.Component
     return (
       <div className={styles.root}>
         <img src={image}></img>
-        <div className={styles.contentWrapper}>
+        <div className={styles.content__wrapper}>
           <h2>{title}</h2>
           <h1>{price}</h1>
           <p>{description}</p>

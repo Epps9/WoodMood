@@ -4,7 +4,7 @@
     position: relative;
     height: 350px;
     width: 300px;
-    background-color: $light;
+    background-color: lightgray;
     margin: 20px;
     .link {
         text-decoration: none;
@@ -21,7 +21,7 @@
         font-size: 14px;
     }
 }
-.bottomBar {
+.bottom__bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

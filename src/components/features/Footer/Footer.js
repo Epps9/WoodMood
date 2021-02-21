@@ -15,10 +15,10 @@ const Component = () => (
         <a>Delivery</a>
         <a>Contact</a>
       </div>
-      <div className={styles.socialMedia}>
-        <a><FaFacebookSquare className={styles.socialMediaIcon}/></a>
-        <a><FaInstagram className={styles.socialMediaIcon}/></a>
-        <a><FaLinkedin className={styles.socialMediaIcon}/></a>
+      <div className={styles.social__media}>
+        <a><FaFacebookSquare className={styles.social__media__icon}/></a>
+        <a><FaInstagram className={styles.social__media__icon}/></a>
+        <a><FaLinkedin className={styles.social__media__icon}/></a>
       </div>
     </div>
 );
