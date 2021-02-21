@@ -1,13 +1,16 @@
+
+import {initialState} from './initialState';
+
 /* selectors */
 export const getAll = ({products}) => products.watches;
 export const getOneWatch = ({products}, id) => {
   const chosenProduct = products.watches.filter(item => item.id == id);
-  console.log('coto jest id', chosenProduct);
+  //console.log('coto jest id', chosenProduct);
   return chosenProduct;
 }
 export const getOneBracelet = ({products}, id) => {
   const chosenProduct = products.bracelets.filter(item => item.id == id);
-  console.log('coto jest id bracelet', chosenProduct);
+  //console.log('coto jest id bracelet', chosenProduct);
   return chosenProduct;
 }
 export const getOnePromo = ({products}, id) => products.promoProducts.filter(item => item.id == id);
@@ -33,12 +36,19 @@ export const addProductToCart = payload => ({payload, type: ADD_PRODUCT})
 /* thunk creators */
 
 /* reducer */
-export const reducer = (statePart = [], action = {}) => {
+export const reducer = (statePart = initialState, action = {}) => {
   switch (action.type) {
     case ADD_PRODUCT: 
+      const productId = 2;
+      console.log('actionpayload', productId)
+
+      const product = statePart.products.watches.find(item => item.id === productId);
+      console.log('wyszukany produkt', product);
+
+      const addProduct = statePart.cart.push(product);
       return {
         ...statePart,
-        cart: action.payload,
+        cart: addProduct,
       };
     default:
       return statePart;

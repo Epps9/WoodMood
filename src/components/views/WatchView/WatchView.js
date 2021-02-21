@@ -51,8 +51,10 @@ const mapStateToProps = (state, props) => ({
   watch: getOneWatch(state, props.match.params.id),
 });
 
-const mapDispatchToProps = dispatch => ({
-   addToCart: dispatch(addProductToCart({id: '3'})),
+const mapDispatchToProps = (dispatch, props) => ({
+   addToCart: dispatch(addProductToCart({
+    id: props.match.params.id,
+    })),
  }); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
