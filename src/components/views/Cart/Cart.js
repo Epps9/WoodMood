@@ -11,6 +11,26 @@ import { connect } from 'react-redux';
 
 import styles from './Cart.module.scss';
 
+const getProductsPrice = (products) => {
+
+  let productsPrice =  0;
+
+  products.forEach(element => {
+    productsPrice += Number(element.price) * Number(element.amount)
+  });
+
+  return productsPrice;
+}
+
+const getTotalPrice = (products) => {
+  let totalPrice =  0;
+
+  products.forEach(element => {
+    totalPrice += (Number(element.price) * Number(element.amount)) + 10;
+  });
+  return totalPrice;
+}
+
 const Component = ({cartProducts, className}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.left}>
@@ -22,7 +42,7 @@ const Component = ({cartProducts, className}) => (
     <div className={styles.right}>
       <div className={styles.price__element}>
         <h3>products price</h3>
-        <h3>50$</h3>
+        <h3>{getProductsPrice(cartProducts)}$</h3>
       </div>
       <div className={styles.price__element}>
         <h3>shipping price</h3>
@@ -30,7 +50,7 @@ const Component = ({cartProducts, className}) => (
       </div>
       <div className={styles.price__element}>
         <h2>total price</h2>
-        <h2>40$</h2>
+        <h2>{getTotalPrice(cartProducts)}$</h2>
       </div>
       <Link to='/order' className={styles.checkout}>Checkout</Link>
     </div> 

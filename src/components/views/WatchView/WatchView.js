@@ -12,7 +12,7 @@ class Component extends React.Component {
     super(props);
 
     this.state = {
-      amount: '',
+      amount: '1',
     }
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -22,7 +22,6 @@ class Component extends React.Component {
 
   handleSelectChange(event) {
     this.setState({amount: event.target.value});
-    console.log('amount', {amount: event.target.value})
   }
 
 
@@ -52,7 +51,8 @@ class Component extends React.Component {
               <option value='10'>10</option>
             </select>
           </div>
-          <Link to="/cart"><button onClick={addToCart}>Add to cart</button></Link>
+          <Link to="/cart"><button onClick={() => 
+            this.props.addToCart({id: this.props.match.params.id, amount: this.state.amount})}>Add to cart</button></Link>
         </div>
       </div>
     );
@@ -67,10 +67,8 @@ const mapStateToProps = (state, props) => ({
   watch: getOneWatch(state, props.match.params.id),
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
-   addToCart: dispatch(addProductToCart({
-    id: props.match.params.id,
-    })),
+const mapDispatchToProps = (dispatch) => ({
+   addToCart: (data) => dispatch(addProductToCart(data)),
  }); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

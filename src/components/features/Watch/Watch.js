@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { addProductToCart } from '../../../redux/productsRedux.js';
 
 import styles from './Watch.module.scss';
 
-const Component = ({className, image, title, price, id}) => (
+const Component = ({className, image, title, price, id, addToCart}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
       <Link to={`/watches/${id}`} className={styles.link}>
@@ -17,8 +17,9 @@ const Component = ({className, image, title, price, id}) => (
         <h3 className={styles.title}>{title}</h3>
       </Link>
       <div className={styles.bottomBar}>
-        <h3>{price}</h3>
-        <Link to="/cart"><button>Add to cart</button></Link>
+        <h3>{price}$</h3>
+        <Link to="/cart"><button onClick={() => 
+            addToCart({id: id, amount: 1})}>Add to cart</button></Link>
       </div>
     </div>
   </div>
@@ -35,14 +36,15 @@ Component.propTypes = {
 //   watches: state.products.watches,
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  addToCart: (data) => dispatch(addProductToCart(data)),
+}); 
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as Watch,
-  // Container as Product,
+  //Component as Watch,
+  Container as Watch,
   Component as WatchComponent,
 };

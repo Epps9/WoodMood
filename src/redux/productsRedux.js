@@ -15,6 +15,12 @@ export const getOneBracelet = ({products}, id) => {
 }
 export const getOnePromo = ({products}, id) => products.promoProducts.filter(item => item.id == id);
 
+export const findProductAmount = ({cart}, id) => { 
+    const product = cart.find(item => item.id === id);
+    const productAmount = product.amount;
+    return productAmount
+};
+
 
 /* action name creator */
 const reducerName = 'watches';
@@ -38,21 +44,27 @@ export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT})
 /* thunk creators */
 
 /* reducer */
-export const reducer = (statePart = initialState, action = {}) => {
+export const reducer = (cart = [], action = {}) => {
   switch (action.type) {
     case ADD_PRODUCT: 
       const productId = parseInt(action.payload.id);
-      console.log('actionpayload', productId)
 
-      const product = statePart.products.watches.find(item => item.id === productId);
-      console.log('wyszukany produkt', product);
+      const product = initialState.products.watches.find(item => item.id === productId);
 
-      const addProduct = statePart.cart.push(product);
-      return {
-        ...statePart,
-        cart: addProduct,
-      };
+      return [
+        ...cart,
+        {...product, amount: action.payload.amount}
+      ];
+
+      case REMOVE_PRODUCT: 
+
+      const id = parseInt(action.payload)
+
+      cart = cart.filter(item => item.id !== id);
+      return [
+        ...cart
+      ];
     default:
-      return statePart;
+      return cart;
   }
 };

@@ -17,7 +17,7 @@ const Component = ({className, image, title, price, id}) => (
         <h3 className={styles.title}>{title}</h3>
       </Link>
       <div className={styles.bottom__bar}>
-        <h3>{price}</h3>
+        <h3>{price}$</h3>
         <Link to="/cart"><button>Add to cart</button></Link>
       </div>
     </div>

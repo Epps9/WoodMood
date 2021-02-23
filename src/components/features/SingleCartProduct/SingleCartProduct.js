@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {FaTrashAlt} from 'react-icons/fa';
 
 import { connect } from 'react-redux';
-import { removeProduct } from '../../../redux/productsRedux.js';
+import { removeProduct, findProductAmount } from '../../../redux/productsRedux.js';
 
 import styles from './SingleCartProduct.module.scss';
 
@@ -12,14 +12,14 @@ class Component extends React.Component {
   
   render () {
 
-    const {title, image, price, removeFromCart} = this.props;
+    const {title, image, price, removeFromCart, amount} = this.props;
     return (
 
     <div className={styles.singleProduct}>
       <img src={image}/>
       <div className={styles.centre__elements}>
         <h3>{title}</h3>
-        <select>
+        <select value={amount}>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -33,8 +33,8 @@ class Component extends React.Component {
         </select>
       </div>
       <div className={styles.end__elements}>
-        <button onClick={removeFromCart}><FaTrashAlt/></button>
-        <p>{price}</p>
+        <button onClick={() => removeFromCart(this.props.id)}><FaTrashAlt/></button>
+        <p>{price}$</p>
       </div>
     </div>
 
@@ -42,20 +42,17 @@ class Component extends React.Component {
   }
 }
 
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
 
-//const mapStateToProps = state => ({
-  //removeFromCart: id => removeProduct(id),
-//});
+const mapStateToProps = (state, props) => {  
+  return ({
+    amount: findProductAmount(state, props.id),
+})};
 
 const mapDispatchToProps = (dispatch) => ({
-  removeFromCart: dispatch(removeProduct()),
+  removeFromCart: (id) => dispatch(removeProduct(id)),
 });
 
-const Container = connect(null, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as SingleCartProduct,
