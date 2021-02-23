@@ -22,8 +22,20 @@
           }
       }
       .end__elements {
-          div, p {
+          button, p {
               margin: 15px 20px;
           }
+        button {
+            height: 30px;
+            width: 30px;
+            background-color: $mainLight;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            &:hover {
+                background-color: $light;
+                color: $mainLight;
+            }
+        }  
       }
   }

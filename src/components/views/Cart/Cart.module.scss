@@ -21,7 +21,7 @@
     }
     .right {
         width: 30%;
-        background-color: $warm;
+        background-color: $lightDark;
         .price__element {
             display: flex;
             justify-content: space-between;
@@ -31,15 +31,16 @@
             display: block;
             width: 90%;
             height: 88px;
-            background-color: $lightDark;
-            color: $mainLight;
+            background-color: $depth;
+            color: $light;
             text-decoration: none;
             padding: 30px;
             margin: 0 auto;
             font-size: 20px;
+            outline: none;
             &:hover {
-                background-color: $depth;
-                color: $light;
+                background-color: $mainLight ;
+                color: $mainDark;
             }
         }
     }

@@ -51,17 +51,37 @@
         .side__options {
                 display: flex;
                 color: $mainLight;
-                margin-right: 20px;
+                margin-right: 2rem;
                 a {
-                    padding: 20px;
+                    padding: 0 30px;
                     color: $mainLight;
                     text-decoration: none;
-                    display: block;
-                    height: 32px;
-                    padding: 0 auto;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                }
+                .cart {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 2rem;
+                    a {
+                        padding: 0 10px;
+                    }
+                    p {
+                        background-color: $mainLight;
+                        color: $mainDark;
+                        width: 20px;
+                        height: 20px;
+                        text-align: center;
+                        border-radius: 50%;
+                    }
+                    &:hover {
+                        background-color: orange;
+                        color: $mainDark;
+                        a {
+                            color: $mainDark;
+                        }
+                    }
                 }
         }
         .nav {
@@ -84,7 +104,7 @@
                 cursor: grab;
                 &:hover {
                     color: $mainDark;
-                    background-color: #EACCA7;
+                    background-color: $mainLight;
                 } 
             }
         }

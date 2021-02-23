@@ -29,7 +29,6 @@
         color: $mainDark;
     }
     button {
-        width: 40%;
         height: 30px;
         margin-right: 5px;
         background-color: $mainLight;
@@ -39,6 +38,7 @@
         border: none;
         border-radius: 4px;
         box-shadow: 1px 1px $depth;
+        outline: none;
         cursor: grab;
         &:hover {
             background-color: $depth;
