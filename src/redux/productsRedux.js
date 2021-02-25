@@ -32,14 +32,16 @@ const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
 const FETCH_ERROR = createActionName('FETCH_ERROR');
 const ADD_PRODUCT = createActionName('ADD_PRODUCT');
 const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
+const CHANGE_AMOUNT = createActionName('CHANGE_AMOUNT');
 
 /* action creators */
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
-export const addProductToCart = payload => ({payload, type: ADD_PRODUCT})
-export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT})
+export const changeProductAmount = payload => ({payload, type: CHANGE_AMOUNT});
+export const addProductToCart = payload => ({payload, type: ADD_PRODUCT});
+export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT});
 
 /* thunk creators */
 
@@ -63,6 +65,19 @@ export const reducer = (cart = [], action = {}) => {
       cart = cart.filter(item => item.id !== id);
       return [
         ...cart
+      ];
+      case CHANGE_AMOUNT: 
+      const prodId = parseInt(action.payload.id);
+
+      const prod = cart.find(item => item.id === prodId);
+
+      console.log('nowa ilosc produktu', action.payload)
+
+
+
+      return [
+        ...cart,
+        {...prod, amount: action.payload.amount}
       ];
     default:
       return cart;

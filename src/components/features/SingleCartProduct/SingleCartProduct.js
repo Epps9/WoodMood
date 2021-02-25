@@ -3,23 +3,46 @@ import PropTypes from 'prop-types';
 import {FaTrashAlt} from 'react-icons/fa';
 
 import { connect } from 'react-redux';
-import { removeProduct, findProductAmount } from '../../../redux/productsRedux.js';
+import { removeProduct, findProductAmount, changeProductAmount } from '../../../redux/productsRedux.js';
 
 import styles from './SingleCartProduct.module.scss';
 
 class Component extends React.Component { 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      amount: '1',
+    }
+
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+
+
+}
+
+  changeAmount = (data) => {
+    console.log('co to data', data);
   
+  return data;
+  }
+  
+
+  handleSelectChange(event) {
+    this.setState({amount: event.target.value});
+    console.log('new amount',this.state.amount)
+  }
   
   render () {
 
-    const {title, image, price, removeFromCart, amount} = this.props;
+
+    const {title, image, price, removeFromCart, amount, changeAmount} = this.props;
     return (
 
     <div className={styles.singleProduct}>
       <img src={image}/>
       <div className={styles.centre__elements}>
         <h3>{title}</h3>
-        <select value={amount}>
+        <select id='select_id' value={amount} onChange={ () => this.handleSelectChange(), changeAmount({id: this.props.id, amount: this.state.amount})}>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -48,9 +71,12 @@ const mapStateToProps = (state, props) => {
     amount: findProductAmount(state, props.id),
 })};
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => {
+
+return ({
   removeFromCart: (id) => dispatch(removeProduct(id)),
-});
+  changeAmount: (data) => dispatch(changeProductAmount(data))
+})};
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
