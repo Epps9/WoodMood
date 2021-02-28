@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { addProductToCart } from '../../../redux/productsRedux.js';
+import { addWatchToCart } from '../../../redux/productsRedux.js';
 
 import styles from './Watch.module.scss';
 
@@ -37,7 +37,7 @@ Component.propTypes = {
 // });
 
 const mapDispatchToProps = (dispatch) => ({
-  addToCart: (data) => dispatch(addProductToCart(data)),
+  addToCart: (data) => dispatch(addWatchToCart(data)),
 }); 
 
 

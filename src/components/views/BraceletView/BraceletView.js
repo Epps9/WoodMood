@@ -1,13 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getOneBracelet } from '../../../redux/productsRedux.js';
+import { getOneBracelet, addBraceletToCart } from '../../../redux/productsRedux.js';
 
 import styles from './BraceletView.module.scss';
 
 class Component extends React.Component
 {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      amount: '1',
+    }
+
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+}
+
+  handleSelectChange(event) {
+    this.setState({amount: event.target.value});
+  }
   
 
 
@@ -23,7 +37,7 @@ class Component extends React.Component
           <h1>{price}</h1>
           <p>{description}</p>
           <div className={styles.amount}>
-            <select>
+            <select value={this.state.amount} onChange={this.handleSelectChange}>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -36,7 +50,8 @@ class Component extends React.Component
                 <option>10</option>
               </select>
           </div>
-          <button>Add to cart</button>
+          <Link to="/cart"><button onClick={() => 
+            this.props.addToCart({id: this.props.match.params.id, amount: this.state.amount})}>Add to cart</button></Link>
         </div>
       </div>
     );
@@ -51,11 +66,11 @@ const mapStateToProps = (state, props) => ({
   bracelet: getOneBracelet(state, props.match.params.id),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  addToCart: (data) => dispatch(addBraceletToCart(data)),
+}); 
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as ProductView,

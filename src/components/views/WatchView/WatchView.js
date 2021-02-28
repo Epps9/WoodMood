@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { getOneWatch, addProductToCart } from '../../../redux/productsRedux.js';
+import { getOneWatch, addWatchToCart } from '../../../redux/productsRedux.js';
 
 import styles from './WatchView.module.scss';
 
@@ -16,8 +16,6 @@ class Component extends React.Component {
     }
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
-
-
 }
 
   handleSelectChange(event) {
@@ -68,7 +66,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-   addToCart: (data) => dispatch(addProductToCart(data)),
+   addToCart: (data) => dispatch(addWatchToCart(data)),
  }); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

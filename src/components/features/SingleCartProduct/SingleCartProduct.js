@@ -12,7 +12,7 @@ class Component extends React.Component {
     super(props);
 
     this.state = {
-      amount: '1',
+      amount: '',
     }
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
@@ -29,20 +29,21 @@ class Component extends React.Component {
 
   handleSelectChange(event) {
     this.setState({amount: event.target.value});
-    console.log('new amount',this.state.amount)
+    console.log('new amount',this.state.amount);
+    console.log('event target value ', event.target.value) 
   }
   
   render () {
 
 
-    const {title, image, price, removeFromCart, amount, changeAmount} = this.props;
+    const {title, image, price, removeFromCart, amount} = this.props;
     return (
 
     <div className={styles.singleProduct}>
       <img src={image}/>
       <div className={styles.centre__elements}>
         <h3>{title}</h3>
-        <select id='select_id' value={amount} onChange={ () => this.handleSelectChange(), changeAmount({id: this.props.id, amount: this.state.amount})}>
+        <select id='select_id' value={amount} onChange={ (event) => { this.handleSelectChange(event); this.props.changeAmount({id: this.props.id, amount: this.state.amount}) }}>
           <option>1</option>
           <option>2</option>
           <option>3</option>
