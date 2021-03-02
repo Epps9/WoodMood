@@ -6,6 +6,7 @@ export const initialState = {
         title: 'Wooden watch – walnut', 
         image: 'https://cdn.shopify.com/s/files/1/0059/8143/8023/products/woodwatchformen-giftforhim-groomsmenwatches_530x@2x.jpg', 
         price: '15',
+        amount: 0,
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       },
       { 
@@ -13,6 +14,8 @@ export const initialState = {
         title: 'Wooden watch – pecan', 
         image: 'https://manufakturadobrowolscy.pl/784-large_default/wooden-watch-walnut.jpg', 
         price: '25',
+        amount: 0,
+
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -20,6 +23,8 @@ export const initialState = {
         title: 'Wooden watch – peanut', 
         image: 'https://www.adelexpress.com/wp-content/uploads/2019/04/DODO-DEER-Luxury-Zebra-Wooden-Watches-Men-Gift-Quartz-Wood-Watch-Black-erkek-kol-saati-Drop.jpg', 
         price: '55',
+        amount: 0,
+
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -27,6 +32,8 @@ export const initialState = {
         title: 'Wooden watch – chestnut', 
         image: 'https://plantwear.pl/wp-content/uploads/produkt-swieta-0002-1.jpg', 
         price:  '45',
+        amount: 0,
+
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -34,6 +41,7 @@ export const initialState = {
         title: 'Wooden watch – hazelnut', 
         image: 'https://ae01.alicdn.com/kf/HTB17_EHPVXXXXcoXpXXq6xXFXXXg/Naturaleza-de-Madera-del-Juego-de-Tronos-Lobo-Banda-de-Cuero-Mujeres-Relojes-Creativos-De-Bamb.jpg_640x640.jpg', 
         price:  '35',
+        amount: 0,
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -41,6 +49,7 @@ export const initialState = {
         title: 'Wooden watch – oak', 
         image: 'https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg', 
         price: '40',
+        amount: 0,
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -48,6 +57,7 @@ export const initialState = {
         title: 'Wooden watch – pine', 
         image: 'https://tmzegarki.pl/wp-content/uploads/2018/11/2520-45aa2b-510x510.jpeg', 
         price: '30',
+        amount: 0,
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }, 
       { 
@@ -55,6 +65,7 @@ export const initialState = {
         title: 'Wooden watch – willow', 
         image: 'https://image.ceneostatic.pl/data/products/95355245/i-imitation-wood-watch-men-women-quartz-imitate-wooden-ostrich-deer-man-wristwatch-soft-leather-band-male-wrist-clock-reloj.jpg', 
         price: '20',
+        amount: 0,
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
       }
     ],

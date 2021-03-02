@@ -55,11 +55,41 @@ export const reducer = (cart = [], action = {}) => {
     case ADD_WATCH: 
       const watchId = parseInt(action.payload.id);
 
-      const watch = initialState.products.watches.find(item => item.id === watchId);
+      console.log('action.payload.amount', action.payload.amount);
+
+      const inCart = cart.find(item => item.id === watchId)
+
+
+
+      const newWatch = () => {
+        if(!inCart){
+          const singleWatch = initialState.products.watches.find(item => 
+            item.id === watchId);
+          singleWatch.amount = action.payload.amount;
+          console.log('singleWatch1', singleWatch);
+          return singleWatch
+
+        } else {
+          const singleWatch = cart.find(item => item.id === watchId)
+          console.log('singleWatch2', singleWatch);
+          singleWatch.amount = singleWatch.amount + action.payload.amount;
+          console.log('singleWatch.amount', singleWatch.amount);
+          console.log('adding', singleWatch.amount + action.payload.amount);
+          return singleWatch
+        }
+      }
+
+      
+
+      localStorage.setItem('cart', JSON.stringify(               [
+        ...cart,
+        {...newWatch(), amount: action.payload.amount},
+      ],
+        ));
 
       return [
         ...cart,
-        {...watch, amount: action.payload.amount}
+        {...newWatch()},
       ];
 
       case ADD_BRACELET: 
@@ -83,12 +113,19 @@ export const reducer = (cart = [], action = {}) => {
       case CHANGE_AMOUNT: 
       const prodId = parseInt(action.payload.id);
 
-      const prod = cart.find(item => item.id === prodId);
+      const newStatePart = cart.map(item => {
+        if(item.id===prodId){
+        item.amount = action.payload.amount
+        return item
+        } else {
+        return item;
+        }
+      });
 
+      localStorage.setItem('cart', JSON.stringify({newStatePart}));
 
       return [
-        ...cart,
-        {...prod, amount: action.payload.amount}
+        ...newStatePart,
       ];
     default:
       return cart;

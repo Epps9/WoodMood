@@ -12,21 +12,21 @@ class Component extends React.Component {
     super(props);
 
     this.state = {
-      amount: '1',
+      amount: 1,
     }
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
 }
 
   handleSelectChange(event) {
-    this.setState({amount: event.target.value});
+    this.setState({amount: parseInt(event.target.value)});
   }
 
 
 
   render() {
 
-    const {title, image, description, price, addToCart} = this.props.watch[0];
+    const {title, image, description, price} = this.props.watch[0];
   
     return (
       <div className={styles.root}>
@@ -36,17 +36,17 @@ class Component extends React.Component {
           <h1>{price}</h1>
           <p>{description}</p>
           <div className={styles.amount}>
-            <select value={this.state.amount} onChange={this.handleSelectChange}>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-              <option value='9'>9</option>
-              <option value='10'>10</option>
+            <select value={this.state.amount} onChange={ (e) =>  this.handleSelectChange(e) }>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
             </select>
           </div>
           <Link to="/cart"><button onClick={() => 
