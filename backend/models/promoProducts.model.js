@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
-const watchSchema = new mongoose.Schema({
+const promoSchema = new mongoose.Schema({
   title: { type: String, required: true },
   image: { type: String, required: true },
   price: { type: Number, required: true },
+  newPrice: { type: Number, required: true },
   description: {type: String, required: true},
+
 });
 
-module.exports = mongoose.model('Watch', watchSchema);
+module.exports = mongoose.model('PromoProduct', promoSchema);

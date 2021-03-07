@@ -21,7 +21,7 @@ class Component extends React.Component {
 }
 
 componentDidUpdate() {
-  this.props.changeAmount({id: this.props.id, amount: parseInt(this.state.amount)});
+  this.props.changeAmount({_id: this.props._id, amount: parseInt(this.state.amount)});
   }
 
 
@@ -52,7 +52,7 @@ componentDidUpdate() {
         </select>
       </div>
       <div className={styles.end__elements}>
-        <button onClick={() => removeFromCart(this.props.id)}><FaTrashAlt/></button>
+        <button onClick={() => removeFromCart(this.props._id)}><FaTrashAlt/></button>
         <p>{price}$</p>
       </div>
     </div>
@@ -64,13 +64,13 @@ componentDidUpdate() {
 
 const mapStateToProps = (state, props) => {  
   return ({
-    amount: findProductAmount(state, props.id),
+    amount: findProductAmount(state, props._id),
 })};
 
 const mapDispatchToProps = (dispatch) => {
 
 return ({
-  removeFromCart: (id) => dispatch(removeProduct(id)),
+  removeFromCart: (_id) => dispatch(removeProduct(_id)),
   changeAmount: (data) => dispatch(changeProductAmount(data))
 })};
 

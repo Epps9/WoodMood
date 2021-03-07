@@ -68,7 +68,7 @@ const Component = ({className, cartProducts}) => (
     <div className={styles.right}>
       <div className={styles.order__total}>
         {cartProducts.map(item => (
-          <SingleOrderProduct key={item.id} {...item} />
+          <SingleOrderProduct key={item._id} {...item} />
         ))}
         <div className={styles.total}>
         <h1>TOTAL</h1>

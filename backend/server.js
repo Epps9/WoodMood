@@ -3,7 +3,9 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const watchesRoutes = require('../backend/routes/watches.routes')
+const watchesRoutes = require('../backend/routes/watches.routes');
+const braceletsRoutes = require('../backend/routes/bracelets.routes');
+const promoProductsRoutes = require('../backend/routes/promoProducts.routes');
 
 
 const app = express();
@@ -15,10 +17,13 @@ app.use(express.urlencoded({ extended: false }));
 
 /* API ENDPOINTS */
 app.use('/api', watchesRoutes);
+app.use('/api', braceletsRoutes);
+app.use('/api', promoProductsRoutes);
+
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
-  res.status(404).send({ watch: 'Not found...' });
+  res.status(404).send({ message: 'Not found...' });
 });
 
 /* REACT WEBSITE */
@@ -28,7 +33,7 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/WoodMood', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://Ewa:kodilla@cluster0.wsukt.mongodb.net/MoodWood?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');

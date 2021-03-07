@@ -49,7 +49,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  promo: getOnePromo(state, props.match.params.id),
+  promo: getOnePromo(state, props.match.params._id),
 });
 
 // const mapDispatchToProps = dispatch => ({

@@ -2,21 +2,21 @@
 import {initialState} from './initialState';
 
 /* selectors */
-export const getAll = ({products}) => products.watches;
-export const getOneWatch = ({products}, id) => {
-  const chosenProduct = products.watches.filter(item => item.id == id);
+export const getAll = ({watches}) => watches;
+export const getOneWatch = ({watches}, _id) => {
+  const chosenProduct = watches.filter(item => item._id == _id);
   //console.log('coto jest id', chosenProduct);
   return chosenProduct;
 }
-export const getOneBracelet = ({products}, id) => {
-  const chosenProduct = products.bracelets.filter(item => item.id == id);
+export const getOneBracelet = ({bracelets}, _id) => {
+  const chosenProduct = bracelets.filter(item => item._id == _id);
   //console.log('coto jest id bracelet', chosenProduct);
   return chosenProduct;
 }
-export const getOnePromo = ({products}, id) => products.promoProducts.filter(item => item.id == id);
+export const getOnePromo = ({promoProducts}, _id) => promoProducts.filter(item => item._id == _id);
 
-export const findProductAmount = ({cart}, id) => { 
-    const product = cart.find(item => item.id === id);
+export const findProductAmount = ({cart}, _id) => { 
+    const product = cart.find(item => item._id === _id);
     const productAmount = product.amount;
     return productAmount
 };
@@ -27,9 +27,7 @@ const reducerName = 'watches';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
-const FETCH_START = createActionName('FETCH_START');
-const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
-const FETCH_ERROR = createActionName('FETCH_ERROR');
+
 const ADD_WATCH = createActionName('ADD_WATCH');
 const ADD_BRACELET = createActionName('ADD_BRACELET');
 const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
@@ -37,9 +35,6 @@ const CHANGE_AMOUNT = createActionName('CHANGE_AMOUNT');
 
 
 /* action creators */
-export const fetchStarted = payload => ({ payload, type: FETCH_START });
-export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
-export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 export const addWatchToCart = payload => ({payload, type: ADD_WATCH});
 
@@ -54,23 +49,19 @@ export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT});
 export const reducer = (cart = [], action = {}) => {
   switch (action.type) {
     case ADD_WATCH: 
-      const watchId = parseInt(action.payload.id);
-      
-      console.log('REDUX action.payload.id', action.payload.id);
+      const watchId = parseInt(action.payload._id);
 
-      console.log('REDUX action.payload.amount', action.payload.amount);
-
-      const inCart = cart.some(item => item.id === watchId)
+      const inCart = cart.some(item => item._id === watchId)
 
 
       const newWatch = () => {
         if(inCart){
-          const singleWatch = cart.find(item => item.id === watchId);
+          const singleWatch = cart.find(item => item._id === watchId);
           singleWatch.amount = singleWatch.amount + action.payload.amount;
           return cart
         } else {
-          const singleWatch = initialState.products.watches.find(item => 
-            item.id === watchId);
+          const singleWatch = initialState.watches.find(item => 
+            item._id === watchId);
           singleWatch.amount = action.payload.amount;
           cart.push(singleWatch);
           return cart
@@ -83,20 +74,18 @@ export const reducer = (cart = [], action = {}) => {
       ];
 
       case ADD_BRACELET: 
-      const braceletId = parseInt(action.payload.id);
+      const braceletId = parseInt(action.payload._id);
       
-
-      const brInCart = cart.some(item => item.id === braceletId)
-
+      const brInCart = cart.some(item => item._id === braceletId)
 
       const newBracelet = () => {
         if(brInCart){
-          const singleBracelet = cart.find(item => item.id === braceletId);
+          const singleBracelet = cart.find(item => item._id === braceletId);
           singleBracelet.amount = singleBracelet.amount + action.payload.amount;
           return cart
         } else {
-          const singleBracelet = initialState.products.bracelets.find(item => 
-            item.id === braceletId);
+          const singleBracelet = initialState.bracelets.find(item => 
+            item._id === braceletId);
             singleBracelet.amount = action.payload.amount;
           cart.push(singleBracelet);
           return cart
@@ -112,15 +101,15 @@ export const reducer = (cart = [], action = {}) => {
 
       const id = parseInt(action.payload)
 
-      cart = cart.filter(item => item.id !== id);
+      cart = cart.filter(item => item._id !== id);
       return [
         ...cart
       ];
       case CHANGE_AMOUNT: 
-      const prodId = parseInt(action.payload.id);
+      const prodId = parseInt(action.payload._id);
 
       const newStatePart = cart.map(item => {
-        if(item.id===prodId){
+        if(item._id===prodId){
         item.amount = action.payload.amount
         return item
         } else {

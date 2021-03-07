@@ -11,17 +11,17 @@ import { connect } from 'react-redux';
 
 import styles from './Bracelet.module.scss';
 
-const Component = ({className, image, title, price, id, addToCart}) => (
+const Component = ({className, image, title, price, _id, addToCart}) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.product}>
-      <Link to={`/bracelets/${id}`} className={styles.link}>
+      <Link to={`/bracelets/${_id}`} className={styles.link}>
         <img src={image}></img>
         <h3 className={styles.title}>{title}</h3>
       </Link>
       <div className={styles.bottom__bar}>
         <h3>{price}$</h3>
         <Link to="/cart"><button onClick={() => 
-            addToCart({id: id, amount: 1})}>Add to cart</button></Link>
+            addToCart({_id: _id, amount: 1})}>Add to cart</button></Link>
       </div>
     </div>
   </div>

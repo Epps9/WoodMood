@@ -12,7 +12,7 @@ import styles from './Bracelets.module.scss';
 const Component = ({className, bracelets}) => (
   <div className={clsx(className, styles.root)}>
     {bracelets.map( item => (
-      <Bracelet key={item.id} {...item}/>
+      <Bracelet key={item._id} {...item}/>
     ))}
   </div>
 );
@@ -23,7 +23,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  bracelets: state.products.bracelets,
+  bracelets: state.bracelets,
 });
 
 // const mapDispatchToProps = dispatch => ({

@@ -30,7 +30,7 @@ class Component extends React.Component {
             <div className={styles.saleProducts}>
               <Carousel breakPoints={breakPoints}>
               {watches.map(watch => (
-              <PromoProduct key={watch.id} {...watch}/>
+              <PromoProduct key={watch._id} {...watch}/>
               ))}
               </Carousel>
             </div>
@@ -46,7 +46,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  watches: state.products.promoProducts,
+  watches: state.promoProducts,
 });
 
 // const mapDispatchToProps = dispatch => ({

@@ -51,7 +51,7 @@ class Component extends React.Component
               </select>
           </div>
           <Link to="/cart"><button onClick={() => 
-            this.props.addToCart({id: this.props.match.params.id, amount: this.state.amount})}>Add to cart</button></Link>
+            this.props.addToCart({_id: this.props.match.params.id, amount: this.state.amount})}>Add to cart</button></Link>
         </div>
       </div>
     );

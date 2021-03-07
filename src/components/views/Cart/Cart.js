@@ -26,8 +26,9 @@ const getTotalPrice = (products) => {
   let totalPrice =  0;
 
   products.forEach(element => {
-    totalPrice += (Number(element.price) * Number(element.amount)) + 10;
+    totalPrice += (Number(element.price) * Number(element.amount));
   });
+  totalPrice += 10;
   return totalPrice;
 }
 
@@ -36,7 +37,7 @@ const Component = ({cartProducts, className}) => (
     <div className={styles.left}>
         <h2>Twój koszyk</h2>
         {cartProducts.map(item => (
-          <SingleCartProduct key={item.id} {...item} />
+          <SingleCartProduct key={item._id} {...item} />
         ))}
     </div>
     <div className={styles.right}>

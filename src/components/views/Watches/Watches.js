@@ -5,18 +5,29 @@ import {Watch} from '../../features/Watch/Watch'
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { fetchWatches } from '../../../redux/axios';
 
 import styles from './Watches.module.scss';
 
-const Component = ({className, watches}) => (
-  <div className={clsx(className, styles.root)}>
-    {watches.map( item => (
-      <Watch key={item.id} {...item}/>
-    ))}
+class Component extends React.Component {
 
-  </div>
-);
+  componentDidMount () {
+    this.props.fetchWatches();
+  };
+
+  render () {
+
+    const {className, watches} = this.props;
+
+    return (
+    <div className={clsx(className, styles.root)}>
+      {watches.map( item => (
+        <Watch key={item._id} {...item}/>
+      ))}
+    </div>
+    )
+  }
+}
 
 Component.propTypes = {
   className: PropTypes.string,
@@ -24,14 +35,14 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  watches: state.products.watches,
+  watches: state.watches,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+fetchWatches: () => dispatch(fetchWatches()),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as Watches,
