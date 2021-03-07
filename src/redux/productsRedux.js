@@ -42,6 +42,7 @@ export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
 
 export const addWatchToCart = payload => ({payload, type: ADD_WATCH});
+
 export const addBraceletToCart = payload => ({payload, type: ADD_BRACELET});
 
 export const changeProductAmount = payload => ({payload, type: CHANGE_AMOUNT});
@@ -54,52 +55,57 @@ export const reducer = (cart = [], action = {}) => {
   switch (action.type) {
     case ADD_WATCH: 
       const watchId = parseInt(action.payload.id);
+      
+      console.log('REDUX action.payload.id', action.payload.id);
 
-      console.log('action.payload.amount', action.payload.amount);
+      console.log('REDUX action.payload.amount', action.payload.amount);
 
-      const inCart = cart.find(item => item.id === watchId)
-
+      const inCart = cart.some(item => item.id === watchId)
 
 
       const newWatch = () => {
-        if(!inCart){
+        if(inCart){
+          const singleWatch = cart.find(item => item.id === watchId);
+          singleWatch.amount = singleWatch.amount + action.payload.amount;
+          return cart
+        } else {
           const singleWatch = initialState.products.watches.find(item => 
             item.id === watchId);
           singleWatch.amount = action.payload.amount;
-          console.log('singleWatch1', singleWatch);
-          return singleWatch
-
-        } else {
-          const singleWatch = cart.find(item => item.id === watchId)
-          console.log('singleWatch2', singleWatch);
-          singleWatch.amount = singleWatch.amount + action.payload.amount;
-          console.log('singleWatch.amount', singleWatch.amount);
-          console.log('adding', singleWatch.amount + action.payload.amount);
-          return singleWatch
+          cart.push(singleWatch);
+          return cart
         }
       }
 
       
-
-      localStorage.setItem('cart', JSON.stringify(               [
-        ...cart,
-        {...newWatch(), amount: action.payload.amount},
-      ],
-        ));
-
       return [
-        ...cart,
-        {...newWatch()},
+        ...newWatch()
       ];
 
       case ADD_BRACELET: 
       const braceletId = parseInt(action.payload.id);
+      
 
-      const bracelet = initialState.products.bracelets.find(item => item.id === braceletId);
+      const brInCart = cart.some(item => item.id === braceletId)
 
+
+      const newBracelet = () => {
+        if(brInCart){
+          const singleBracelet = cart.find(item => item.id === braceletId);
+          singleBracelet.amount = singleBracelet.amount + action.payload.amount;
+          return cart
+        } else {
+          const singleBracelet = initialState.products.bracelets.find(item => 
+            item.id === braceletId);
+            singleBracelet.amount = action.payload.amount;
+          cart.push(singleBracelet);
+          return cart
+        }
+      }
+
+      
       return [
-        ...cart,
-        {...bracelet, amount: action.payload.amount}
+        ...newBracelet()
       ];
 
       case REMOVE_PRODUCT: 

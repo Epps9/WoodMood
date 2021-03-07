@@ -22,7 +22,6 @@ class Component extends React.Component {
 
 componentDidUpdate() {
   this.props.changeAmount({id: this.props.id, amount: parseInt(this.state.amount)});
-  console.log(typeof this.state.amount)
   }
 
 
