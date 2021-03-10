@@ -15,7 +15,6 @@ class Component extends React.Component
   render() {
 
     const {title, image, description, price} = this.props.promo[0];
-  
     return (
       <div className={styles.root}>
         <img src={image}></img>
@@ -48,9 +47,10 @@ Component.propTypes = {
   watch: PropTypes.node,
 };
 
-const mapStateToProps = (state, props) => ({
-  promo: getOnePromo(state, props.match.params._id),
-});
+const mapStateToProps = (state, props) => {
+return ({
+  promo: getOnePromo(state, props.match.params.id),
+}) };
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),

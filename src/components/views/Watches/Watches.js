@@ -34,9 +34,11 @@ Component.propTypes = {
   watches: PropTypes.node,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  console.log('co to watchess', state.watchess.data)
+return ({
   watches: state.watches,
-});
+})};
 
 const mapDispatchToProps = dispatch => ({
 fetchWatches: () => dispatch(fetchWatches()),

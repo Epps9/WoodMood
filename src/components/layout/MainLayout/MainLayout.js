@@ -13,6 +13,9 @@ import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './MainLayout.module.scss';
+import { CartBoxProduct } from '../../features/CartBoxProduct/CartBoxProduct';
+
+
 
 class Component extends React.Component {
   constructor(props) {
@@ -33,10 +36,21 @@ class Component extends React.Component {
       }
     }
 
+    
+    getTotalCount(products) {
+      let totalCount = 0;
+
+      products.forEach(element => {
+        if(element) {
+        totalCount += element.amount
+        }
+      })
+      return totalCount;
+    }
 
   render() {
 
-    const {children, className, cartCount} = this.props;
+    const {children, className, cartProducts} = this.props;
 
     return (
       <div className={clsx(className, styles.root)}>
@@ -55,7 +69,7 @@ class Component extends React.Component {
               <div className={styles.cart}>
                 <FaShoppingCart/>
                 <Link to='/cart' className={styles.cartCart} onMouseEnter={this.handleMouseHover}>Cart</Link>
-                <p>{cartCount}</p>
+                <p>{this.getTotalCount(cartProducts)}</p>
               </div>
             </div>
           </div>
@@ -69,17 +83,12 @@ class Component extends React.Component {
         {this.state.hover && 
         
           <div className={styles.cartbox} onMouseLeave={this.handleMouseHover}>
-            <div className={styles.cartbox__product}>
-            <img src='https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg'></img>
-            <h4>your watch</h4>
-            <p>20$</p>
-            </div>
-            <div className={styles.cartbox__product}>
-              <img src='https://ae01.alicdn.com/kf/Had8ad938c5184d3d99aa79529c471a7eA.jpg'></img>
-              <h4>your watch</h4>
-              <p>20$</p>
-            </div>
+            {
+              cartProducts.map(item => (
+              <CartBoxProduct key={item._id} {...item} />))  
+            }
           <Link to='/cart' className={styles.cartlink}>See cart</Link>
+
           </div>
 
         }
@@ -98,6 +107,7 @@ Component.propTypes = {
 
 const mapStateToProps = state => ({
   cartCount: state.cartCount,
+  cartProducts: state.cart,
 });
 
 // const mapDispatchToProps = dispatch => ({

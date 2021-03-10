@@ -1,0 +1,35 @@
+@import '../../../styles/settings.scss';
+
+.cartbox__product {
+    width: 100%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 50% 50%;
+    padding-right: 23px;
+    border-bottom: 1px solid $mainLight;
+    img {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        height: 100%;
+        width: 100%;
+    }
+    h4 {
+        font-family: $nav-font;
+        margin-left: 10px;
+        color: $mainLight;
+        font-size: 12px;
+        justify-items: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    p {
+        font-family: $nav-font;
+        font-size: 15px;
+        color: $mainLight;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

@@ -5,12 +5,10 @@ import {initialState} from './initialState';
 export const getAll = ({watches}) => watches;
 export const getOneWatch = ({watches}, _id) => {
   const chosenProduct = watches.filter(item => item._id == _id);
-  //console.log('coto jest id', chosenProduct);
   return chosenProduct;
 }
 export const getOneBracelet = ({bracelets}, _id) => {
   const chosenProduct = bracelets.filter(item => item._id == _id);
-  //console.log('coto jest id bracelet', chosenProduct);
   return chosenProduct;
 }
 export const getOnePromo = ({promoProducts}, _id) => promoProducts.filter(item => item._id == _id);
