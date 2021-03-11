@@ -6,11 +6,15 @@ import {PromoProduct} from '../../features/PromoProduct/PromoProduct'
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { fetchPromoProducts } from '../../../redux/Data fetching/promoProducts';
 
 import styles from './Homepage.module.scss';
 
 class Component extends React.Component {
+
+  componentDidMount () {
+    this.props.fetchPromoProducts();
+  };
   
   render () {
 
@@ -19,7 +23,7 @@ class Component extends React.Component {
       {width: 1200, itemsToShow:3}
     ]
 
-    const {className, watches} = this.props;
+    const {className, promoProducts} = this.props;
   
     return  (
       <div className={clsx(className, styles.root)}>
@@ -29,7 +33,7 @@ class Component extends React.Component {
             </div>
             <div className={styles.saleProducts}>
               <Carousel breakPoints={breakPoints}>
-              {watches.map(watch => (
+              {promoProducts && promoProducts.map(watch => (
               <PromoProduct key={watch._id} {...watch}/>
               ))}
               </Carousel>
@@ -46,14 +50,14 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  watches: state.promoProducts,
+  promoProducts: state.promoProducts.data,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchPromoProducts: () => dispatch(fetchPromoProducts()),
+  });
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as Homepage,

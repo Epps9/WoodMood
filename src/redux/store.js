@@ -4,12 +4,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
 import { reducer as cartReducer } from './productsRedux';
-import { reducer as fetchWatches } from './axios';
+import { reducer as fetchWatches } from './Data fetching/watches';
+import { reducer as fetchBracelets } from './Data fetching/bracelets';
+import { reducer as fetchPromoProducts } from './Data fetching/promoProducts';
 
 // define reducers
 const reducers = {
   cart: cartReducer,
-  watchess: fetchWatches,
+  watches: fetchWatches,
+  bracelets: fetchBracelets,
+  promoProducts: fetchPromoProducts,
 };
 
 // add blank reducers for initial state properties without reducers

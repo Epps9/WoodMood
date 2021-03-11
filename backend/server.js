@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const watchesRoutes = require('../backend/routes/watches.routes');
 const braceletsRoutes = require('../backend/routes/bracelets.routes');
-const promoProductsRoutes = require('../backend/routes/promoProducts.routes');
+const promoProductsRoutes = require('./routes/promoproducts.routes');
 
 
 const app = express();

@@ -5,32 +5,48 @@ import {Bracelet} from '../../features/Bracelet/Bracelet';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { fetchBracelets } from '../../../redux/Data fetching/bracelets';
 
 import styles from './Bracelets.module.scss';
 
-const Component = ({className, bracelets}) => (
-  <div className={clsx(className, styles.root)}>
-    {bracelets.map( item => (
-      <Bracelet key={item._id} {...item}/>
-    ))}
-  </div>
-);
+class Component extends React.Component { 
+
+  componentDidMount () {
+    this.props.fetchBracelets();
+  };
+
+  render() {
+
+    const {className, bracelets} = this.props;
+
+    return(
+      <div className={clsx(className, styles.root)}>
+        {bracelets && bracelets.map( item => (
+          <Bracelet key={item._id} {...item}/>
+        ))}
+      </div>
+    );
+  }
+}
 
 Component.propTypes = {
   className: PropTypes.string,
   bracelets: PropTypes.node,
 };
 
-const mapStateToProps = state => ({
-  bracelets: state.bracelets,
-});
+const mapStateToProps = state => {
+  console.log('co to bracelets', state.bracelets.data);
+  console.log('co to loading', state.bracelets.loading)
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+return ({
+  bracelets: state.bracelets.data,
+})};
 
-const Container = connect(mapStateToProps)(Component);
+const mapDispatchToProps = dispatch => ({
+  fetchBracelets: () => dispatch(fetchBracelets()),
+  });
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as Bracelets,

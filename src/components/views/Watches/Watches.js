@@ -5,7 +5,7 @@ import {Watch} from '../../features/Watch/Watch'
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { fetchWatches } from '../../../redux/axios';
+import { fetchWatches } from '../../../redux/Data fetching/watches';
 
 import styles from './Watches.module.scss';
 
@@ -21,7 +21,7 @@ class Component extends React.Component {
 
     return (
     <div className={clsx(className, styles.root)}>
-      {watches.map( item => (
+      {watches && watches.map( item => (
         <Watch key={item._id} {...item}/>
       ))}
     </div>
@@ -35,9 +35,11 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log('co to watchess', state.watchess.data)
+  console.log('co to watchess', state.watches.data);
+  console.log('co to loading', state.watches.loading)
+
 return ({
-  watches: state.watches,
+  watches: state.watches.data,
 })};
 
 const mapDispatchToProps = dispatch => ({
