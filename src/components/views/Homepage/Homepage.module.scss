@@ -15,4 +15,19 @@
     }
 }
 
-
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+    .root {
+        position: relative;
+        .elements__wrapper {
+            position: relative;
+            text-align: center;
+            .title {
+                margin: 10px 0;
+            }
+            h1 {
+                font-family: $nav-font;
+                font-size: 30px;
+            }
+        }
+    } 
+}

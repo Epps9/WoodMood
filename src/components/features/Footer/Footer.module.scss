@@ -30,5 +30,18 @@
     }
 }  
 
+@media (min-device-width: 280px) and (max-device-width: 767px) {
 
+    .footer {
+        height: 200px;
+        .info {
+            a {
+                padding: 0 20px;
+                font-size: 10px;
+                flex-wrap: wrap;
+            }      
+        }
+    }  
+
+}
 

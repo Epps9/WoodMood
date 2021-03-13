@@ -39,7 +39,7 @@ class Component extends React.Component {
         <img src={image}></img>
         <div className={styles.content__wrapper}>
           <h2>{title}</h2>
-          <h1>{price}</h1>
+          <h1>{price}$</h1>
           <p>{description}</p>
           <div className={styles.amount}>
             <select value={this.state.amount} onChange={ (e) =>  this.handleSelectChange(e) }>

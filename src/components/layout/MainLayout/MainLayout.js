@@ -67,7 +67,7 @@ class Component extends React.Component {
               <Link to='/'>Register</Link>
               <Link to='/'> Log in</Link>
               <div className={styles.cart}>
-                <FaShoppingCart/>
+                <FaShoppingCart className={styles.icon__cart}/>
                 <Link to='/cart' className={styles.cartCart} onMouseEnter={this.handleMouseHover}>Cart</Link>
                 <p>{this.getTotalCount(cartProducts)}</p>
               </div>

@@ -53,3 +53,47 @@
     }
 }
 
+
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+    .root {
+      margin: 0 auto;
+      padding: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+      .content__wrapper {
+        margin: 0;
+        h2, h1 {
+            text-align: center;
+            margin: 50px 0;
+        }
+        p {
+            font-size: 12px;
+            text-align: justify;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        button {
+            height: 50px;
+            font-size: 15px;
+            border-radius: 2px;
+        }
+        .amount {
+            margin: 50px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            select {
+                height: 20px;
+                width: 30px;
+            }
+        }
+      }
+    }
+}

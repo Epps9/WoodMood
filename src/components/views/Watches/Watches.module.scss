@@ -8,3 +8,11 @@
     justify-content: center;
     margin: 200px 0;
 }
+
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+    .root {
+        margin: 0;
+    }
+
+}

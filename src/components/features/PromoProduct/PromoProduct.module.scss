@@ -50,3 +50,58 @@
         }  
     }
 }
+
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+    .root {
+        position: relative;
+        .product {
+            height: 200px;
+            width: 200px;
+            background-color: white;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            button {
+                position: absolute;
+                top: 305px;
+                left: 115px;
+                height: 10%;
+                width:40%;
+                background-color: $light;
+                color: $mainLight;
+                font-family: $nav-font;
+                border-radius: 5px;
+                border: $light;
+                text-shadow: $depth 2px 2px;
+                box-shadow: #636363  2px 2px;
+                cursor: grab;
+                &:hover {
+                    background-color: #737373;
+                }  
+            }
+            h3 {
+                position: absolute;
+                top: 295px;
+                left: 336px;
+                font-size: 20px;
+                color: $depth;
+                font-family: $nav-font;
+                text-decoration: line-through;
+            }
+            h2 {
+                position: absolute;
+                top: 322px;
+                left: 323px;
+                font-family: $nav-font;
+                color: #EA6152;
+                font-size: 2rem;
+            }  
+        }
+    }
+
+
+
+}

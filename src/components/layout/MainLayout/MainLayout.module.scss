@@ -194,6 +194,43 @@
 }
 
 
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+  .root {
+    margin: 0;
+    .layout__background {
+      padding: 40px 0;
+  }
+
+  .link .logo {
+    h1 {
+      font-size: 14px;
+    }
+    .leaf {
+      font-size: 20px;
+      margin-right: 5px;
+    }
+  }
+
+    .top__bar__content .side__options {
+      font-size: 11px;
+      margin: 0;
+        a, .cart {
+          padding: 0 12px;
+        }
+        .cart .icon__cart {
+          display: none;
+        }    
+    }
+
+    .top__bar .nav .nav__link {
+      font-size: 12px;
+      padding: 0 10px;
+    }
+  }
+}
+
+
 
 
 
