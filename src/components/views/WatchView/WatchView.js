@@ -4,10 +4,16 @@ import {Link} from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getOneWatch, addWatchToCart } from '../../../redux/productsRedux.js';
+import { fetchWatches } from '../../../redux/Data fetching/watches'
 
 import styles from './WatchView.module.scss';
 
 class Component extends React.Component {
+
+  componentDidMount () {
+    this.props.fetchWatches();
+  };
+
   constructor(props) {
     super(props);
 
@@ -67,6 +73,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
    addToCart: (data) => dispatch(addWatchToCart(data)),
+   fetchWatches: ()=> dispatch(fetchWatches()),
  }); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

@@ -3,15 +3,15 @@ import {initialState} from './initialState';
 
 /* selectors */
 export const getAll = ({watches}) => watches;
-export const getOneWatch = ({watches}, _id) => {
-  const chosenProduct = watches.filter(item => item._id == _id);
+export const getOneWatch = ({watches}, id) => {
+  const chosenProduct = watches.data.filter(item => item._id == id);
   return chosenProduct;
 }
-export const getOneBracelet = ({bracelets}, _id) => {
-  const chosenProduct = bracelets.filter(item => item._id == _id);
+export const getOneBracelet = ({bracelets}, id) => {
+  const chosenProduct = bracelets.data.filter(item => item._id == id);
   return chosenProduct;
 }
-export const getOnePromo = ({promoProducts}, _id) => promoProducts.filter(item => item._id == _id);
+export const getOnePromo = ({promoProducts}, id) => promoProducts.data.filter(item => item._id == id);
 
 export const findProductAmount = ({cart}, _id) => { 
     const product = cart.find(item => item._id === _id);

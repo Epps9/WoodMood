@@ -4,11 +4,19 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getOneBracelet, addBraceletToCart } from '../../../redux/productsRedux.js';
+import { fetchBracelets } from '../../../redux/Data fetching/bracelets'
 
 import styles from './BraceletView.module.scss';
 
-class Component extends React.Component
-{
+
+
+class Component extends React.Component {
+
+  componentDidMount () {
+    this.props.fetchBracelets();
+  };
+
+
   constructor(props) {
     super(props);
 
@@ -68,6 +76,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addToCart: (data) => dispatch(addBraceletToCart(data)),
+  fetchBracelets: () => dispatch(fetchBracelets()),
 }); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

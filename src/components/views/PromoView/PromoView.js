@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { getOnePromo } from '../../../redux/productsRedux.js';
-import {AddButton} from '../../features/AddButton/AddButton';
+import { fetchPromoProducts } from '../../../redux/Data fetching/promoProducts';
+
 
 import styles from './PromoView.module.scss';
 
 class Component extends React.Component
 {
   
+  componentDidMount () {
+    this.props.fetchPromoProducts();
+  };
 
 
   render() {
@@ -52,11 +56,11 @@ return ({
   promo: getOnePromo(state, props.match.params.id),
 }) };
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchPromoProducts: () => dispatch(fetchPromoProducts()),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   //Component as ProductView,
