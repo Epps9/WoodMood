@@ -47,3 +47,17 @@
 
 }
 
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+  .root {
+    flex-direction: column;
+    margin: 0;
+    height: auto;
+    .right {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+  }
+
+}
+

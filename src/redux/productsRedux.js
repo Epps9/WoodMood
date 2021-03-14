@@ -1,8 +1,10 @@
 
 import {initialState} from './initialState';
+const ObjectId = require('mongodb').ObjectID;
+
+
 
 /* selectors */
-export const getAll = ({watches}) => watches;
 export const getOneWatch = ({watches}, id) => {
   const chosenProduct = watches.data.filter(item => item._id == id);
   return chosenProduct;
@@ -30,16 +32,17 @@ const ADD_WATCH = createActionName('ADD_WATCH');
 const ADD_BRACELET = createActionName('ADD_BRACELET');
 const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
 const CHANGE_AMOUNT = createActionName('CHANGE_AMOUNT');
-
+const ADD_PROMO = createActionName('ADD_PROMO');
 
 /* action creators */
 
 export const addWatchToCart = payload => ({payload, type: ADD_WATCH});
-
 export const addBraceletToCart = payload => ({payload, type: ADD_BRACELET});
+export const addPromoToCart = payload => ({payload, type: ADD_PROMO});
 
 export const changeProductAmount = payload => ({payload, type: CHANGE_AMOUNT});
 export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT});
+
 
 /* thunk creators */
 
@@ -47,19 +50,22 @@ export const removeProduct = payload => ({payload, type: REMOVE_PRODUCT});
 export const reducer = (cart = [], action = {}) => {
   switch (action.type) {
     case ADD_WATCH: 
-      const watchId = parseInt(action.payload._id);
+      const watchId = action.payload._id;
 
       const inCart = cart.some(item => item._id === watchId)
 
+      const watches = JSON.parse(localStorage.getItem('watches'));
 
       const newWatch = () => {
         if(inCart){
-          const singleWatch = cart.find(item => item._id === watchId);
+          const singleWatch = cart.find(item => item._id == watchId);
+
           singleWatch.amount = singleWatch.amount + action.payload.amount;
           return cart
         } else {
-          const singleWatch = initialState.watches.find(item => 
-            item._id === watchId);
+          const singleWatch = watches.data.find(item => 
+            item._id == watchId);
+
           singleWatch.amount = action.payload.amount;
           cart.push(singleWatch);
           return cart
@@ -72,9 +78,12 @@ export const reducer = (cart = [], action = {}) => {
       ];
 
       case ADD_BRACELET: 
-      const braceletId = parseInt(action.payload._id);
+      const braceletId = action.payload._id;
       
       const brInCart = cart.some(item => item._id === braceletId)
+
+      const bracelets = JSON.parse(localStorage.getItem('bracelets'));
+
 
       const newBracelet = () => {
         if(brInCart){
@@ -82,7 +91,7 @@ export const reducer = (cart = [], action = {}) => {
           singleBracelet.amount = singleBracelet.amount + action.payload.amount;
           return cart
         } else {
-          const singleBracelet = initialState.bracelets.find(item => 
+          const singleBracelet = bracelets.data.find(item => 
             item._id === braceletId);
             singleBracelet.amount = action.payload.amount;
           cart.push(singleBracelet);
@@ -95,6 +104,34 @@ export const reducer = (cart = [], action = {}) => {
         ...newBracelet()
       ];
 
+      case ADD_WATCH: 
+      const promoId = action.payload._id;
+
+      const promoInCart = cart.some(item => item._id === promoId)
+
+      const promoProducts = JSON.parse(localStorage.getItem('promoProducts'));
+
+      const newPromo = () => {
+        if(promoInCart){
+          const singlePromo = cart.find(item => item._id == promoId);
+
+          singlePromo.amount = singlePromo.amount + action.payload.amount;
+          return cart
+        } else {
+          const singlePromo = promoProducts.data.find(item => 
+            item._id == promoId);
+
+            singlePromo.amount = action.payload.amount;
+          cart.push(singlePromo);
+          return cart
+        }
+      }
+
+      
+      return [
+        ...newPromo()
+      ];
+
       case REMOVE_PRODUCT: 
 
       const id = parseInt(action.payload)
@@ -104,7 +141,7 @@ export const reducer = (cart = [], action = {}) => {
         ...cart
       ];
       case CHANGE_AMOUNT: 
-      const prodId = parseInt(action.payload._id);
+      const prodId = action.payload._id;
 
       const newStatePart = cart.map(item => {
         if(item._id===prodId){

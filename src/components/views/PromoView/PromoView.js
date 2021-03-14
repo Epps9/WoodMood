@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { getOnePromo } from '../../../redux/productsRedux.js';
 import { fetchPromoProducts } from '../../../redux/Data fetching/promoProducts';
+import {addPromoToCart} from '../../../redux/productsRedux';
 
 
 import styles from './PromoView.module.scss';
@@ -24,7 +26,7 @@ class Component extends React.Component
         <img src={image}></img>
         <div className={styles.content__wrapper}>
           <h2>{title}</h2>
-          <h1>{price}</h1>
+          <h1>{price}$</h1>
           <p>{description}</p>
           <div className={styles.amount}>
             <select>
@@ -40,7 +42,8 @@ class Component extends React.Component
                 <option>10</option>
               </select>
           </div>
-          <button>Add to cart</button>
+          <Link to="/cart"><button onClick={() => 
+            this.props.addToCart({_id: this.props.match.params.id, amount: this.state.amount})}>Add to cart</button></Link>        
         </div>
       </div>
     );
@@ -58,6 +61,8 @@ return ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPromoProducts: () => dispatch(fetchPromoProducts()),
+  addToCart: (data) => dispatch(addPromoToCart(data)),
+
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

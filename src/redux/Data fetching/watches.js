@@ -26,7 +26,7 @@ export const fetchWatches = () => {
       .get('http://localhost:8000/api/watches')
       .then(res => {
         dispatch(fetchSuccess(res.data));
-        console.log('pobiera się watches z Atlasa',res.data)
+        localStorage.setItem('watches', JSON.stringify({data:res.data}));
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));

@@ -35,7 +35,7 @@ Component.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log('co to watchess', state.watches.data);
+  console.log('co to watches.data', state.watches.data);
   console.log('co to loading', state.watches.loading)
 
 return ({

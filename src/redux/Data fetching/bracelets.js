@@ -26,7 +26,7 @@ export const fetchBracelets = () => {
       .get('http://localhost:8000/api/bracelets')
       .then(res => {
         dispatch(fetchSuccess(res.data));
-        console.log('pobiera się bracelets z Atlasa',res.data)
+        localStorage.setItem('bracelets', JSON.stringify({data:res.data}));
       })
       .catch(err => {
         dispatch(fetchError(err.message || true));
