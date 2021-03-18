@@ -11,7 +11,7 @@ const Component = ({image, title, price}) => (
   <div className={styles.product}>
     <img src={image}/>
     <p>{title}</p>
-    <h3>{price}</h3>
+    <h3>{price}$</h3>
 </div>
 );
 

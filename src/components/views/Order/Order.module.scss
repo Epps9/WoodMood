@@ -89,4 +89,58 @@
     }
 }
 
+@media (min-device-width: 280px) and (max-device-width: 767px) {
+
+    .root {
+        flex-direction: column;
+        margin: 0;
+        h2 {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .left {
+            width: 85%;
+            margin: -244px 25px 0 25px;
+            .order__form {
+                .content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-gap: 5px;
+                    input {
+                        height: auto;
+                    }
+                }
+            }
+            .payment .payment__method label {
+                font-size: 10px;
+            }
+            .shipping .shipping__method label {
+                font-size: 10px;
+            }
+        }
+        .right {
+            width: 85%;
+            margin: 10px 25px 0 25px;
+                .order__total .total {
+                    margin: 20px 0;
+                    h1 {
+                        margin: 0;
+                    }
+                }
+                .order__total button {
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+        }
+    }
+
+
+    
+
+}
+
+
 

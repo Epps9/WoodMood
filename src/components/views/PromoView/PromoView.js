@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getOnePromo } from '../../../redux/productsRedux.js';
 import { fetchPromoProducts } from '../../../redux/Data fetching/promoProducts';
-import {addPromoToCart} from '../../../redux/productsRedux';
+import { addPromoToCart } from '../../../redux/productsRedux';
 
 
 import styles from './PromoView.module.scss';

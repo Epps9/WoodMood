@@ -36,24 +36,26 @@ componentDidUpdate() {
 
     <div className={styles.singleProduct}>
       <img src={image}/>
-      <div className={styles.centre__elements}>
-        <h3>{title}</h3>
-        <select id='select_id' value={amount} onChange={ (e) =>  this.handleSelectChange(e) }>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-        </select>
-      </div>
-      <div className={styles.end__elements}>
-        <button onClick={() => removeFromCart(this.props._id)}><FaTrashAlt/></button>
-        <p>{price}$</p>
+      <div className={styles.elements}>
+        <div className={styles.centre__elements}>
+          <h3>{title}</h3>
+          <select id='select_id' value={amount} onChange={ (e) =>  this.handleSelectChange(e) }>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </div>
+        <div className={styles.end__elements}>
+          <button onClick={() => removeFromCart(this.props._id)}><FaTrashAlt/></button>
+          <p>{price}$</p>
+        </div>
       </div>
     </div>
 
