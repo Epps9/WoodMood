@@ -1,34 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-
 import { connect } from 'react-redux';
-import { getOneWatch, addWatchToCart } from '../../../redux/productsRedux.js';
-import { fetchWatches } from '../../../redux/Data fetching/watches'
-
 import styles from './WatchView.module.scss';
+
+import { getOneWatch, addWatchToCart } from '../../../redux/productsRedux.js';
+import { fetchWatches } from '../../../redux/Data fetching/watches';
+
 
 class Component extends React.Component {
 
   componentDidMount () {
     this.props.fetchWatches();
-  };
+  }
 
   constructor(props) {
     super(props);
 
     this.state = {
       amount: 1,
-    }
+    };
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
-}
+  }
 
   handleSelectChange(event) {
     this.setState({amount: parseInt(event.target.value)});
   }
-
-
 
   render() {
 
@@ -36,7 +34,7 @@ class Component extends React.Component {
   
     return (
       <div className={styles.root}>
-        <img src={image}></img>
+        <img src={image} alt=''></img>
         <div className={styles.content__wrapper}>
           <h2>{title}</h2>
           <h1>{price}$</h1>
@@ -65,6 +63,8 @@ class Component extends React.Component {
 
 Component.propTypes = {
   watch: PropTypes.node,
+  fetchWatches: PropTypes.node,
+  addToCart: PropTypes.node,
 };
 
 const mapStateToProps = (state, props) => ({
@@ -72,14 +72,13 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-   addToCart: (data) => dispatch(addWatchToCart(data)),
-   fetchWatches: ()=> dispatch(fetchWatches()),
- }); 
+  addToCart: (data) => dispatch(addWatchToCart(data)),
+  fetchWatches: ()=> dispatch(fetchWatches()),
+}); 
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  //Component as ProductView,
   Container as WatchView,
   Component as WatchViewComponent,
 };

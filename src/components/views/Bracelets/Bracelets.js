@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Bracelet} from '../../features/Bracelet/Bracelet';
-
-import clsx from 'clsx';
-
-import { connect } from 'react-redux';
-import { fetchBracelets } from '../../../redux/Data fetching/bracelets';
-
 import styles from './Bracelets.module.scss';
+import clsx from 'clsx';
+import { connect } from 'react-redux';
+
+import {Bracelet} from '../../features/Bracelet/Bracelet';
+import { fetchBracelets } from '../../../redux/Data fetching/bracelets';
 
 class Component extends React.Component { 
 
   componentDidMount () {
     this.props.fetchBracelets();
-  };
+  }
 
   render() {
 
@@ -32,24 +30,23 @@ class Component extends React.Component {
 Component.propTypes = {
   className: PropTypes.string,
   bracelets: PropTypes.node,
+  fetchBracelets: PropTypes.node,
 };
 
 const mapStateToProps = state => {
-  console.log('co to bracelets', state.bracelets.data);
-  console.log('co to loading', state.bracelets.loading)
 
-return ({
-  bracelets: state.bracelets.data,
-})};
+  return ({
+    bracelets: state.bracelets.data,
+  }); 
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchBracelets: () => dispatch(fetchBracelets()),
-  });
+});
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  //Component as Bracelets,
   Container as Bracelets,
   Component as BraceletsComponent,
 };

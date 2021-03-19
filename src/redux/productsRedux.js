@@ -1,24 +1,19 @@
 
-import {initialState} from './initialState';
-const ObjectId = require('mongodb').ObjectID;
-
-
-
 /* selectors */
 export const getOneWatch = ({watches}, id) => {
-  const chosenProduct = watches.data.filter(item => item._id == id);
+  const chosenProduct = watches.data.filter(item => item._id === id);
   return chosenProduct;
-}
+};
 export const getOneBracelet = ({bracelets}, id) => {
-  const chosenProduct = bracelets.data.filter(item => item._id == id);
+  const chosenProduct = bracelets.data.filter(item => item._id === id);
   return chosenProduct;
-}
-export const getOnePromo = ({promoProducts}, id) => promoProducts.data.filter(item => item._id == id);
+};
+export const getOnePromo = ({promoProducts}, id) => promoProducts.data.filter(item => item._id === id);
 
 export const findProductAmount = ({cart}, _id) => { 
-    const product = cart.find(item => item._id === _id);
-    const productAmount = product.amount;
-    return productAmount
+  const product = cart.find(item => item._id === _id);
+  const productAmount = product.amount;
+  return productAmount;
 };
 
 
@@ -52,35 +47,35 @@ export const reducer = (cart = [], action = {}) => {
     case ADD_WATCH: 
       const watchId = action.payload._id;
 
-      const inCart = cart.some(item => item._id === watchId)
+      const inCart = cart.some(item => item._id === watchId);
 
       const watches = JSON.parse(localStorage.getItem('watches'));
 
       const newWatch = () => {
         if(inCart){
-          const singleWatch = cart.find(item => item._id == watchId);
+          const singleWatch = cart.find(item => item._id === watchId);
 
           singleWatch.amount = singleWatch.amount + action.payload.amount;
-          return cart
+          return cart;
         } else {
           const singleWatch = watches.data.find(item => 
-            item._id == watchId);
+            item._id === watchId);
 
           singleWatch.amount = action.payload.amount;
           cart.push(singleWatch);
-          return cart
+          return cart;
         }
-      }
+      };
 
       
       return [
-        ...newWatch()
+        ...newWatch(),
       ];
 
-      case ADD_BRACELET: 
+    case ADD_BRACELET: 
       const braceletId = action.payload._id;
       
-      const brInCart = cart.some(item => item._id === braceletId)
+      const brInCart = cart.some(item => item._id === braceletId);
 
       const bracelets = JSON.parse(localStorage.getItem('bracelets'));
 
@@ -89,66 +84,66 @@ export const reducer = (cart = [], action = {}) => {
         if(brInCart){
           const singleBracelet = cart.find(item => item._id === braceletId);
           singleBracelet.amount = singleBracelet.amount + action.payload.amount;
-          return cart
+          return cart;
         } else {
           const singleBracelet = bracelets.data.find(item => 
             item._id === braceletId);
             singleBracelet.amount = action.payload.amount;
           cart.push(singleBracelet);
-          return cart
+          return cart;
         }
-      }
+      };
 
       
       return [
-        ...newBracelet()
+        ...newBracelet(),
       ];
 
-      case ADD_WATCH: 
+    case ADD_PROMO: 
       const promoId = action.payload._id;
 
-      const promoInCart = cart.some(item => item._id === promoId)
+      const promoInCart = cart.some(item => item._id === promoId);
 
       const promoProducts = JSON.parse(localStorage.getItem('promoProducts'));
 
       const newPromo = () => {
         if(promoInCart){
-          const singlePromo = cart.find(item => item._id == promoId);
+          const singlePromo = cart.find(item => item._id === promoId);
 
           singlePromo.amount = singlePromo.amount + action.payload.amount;
-          return cart
+          return cart;
         } else {
           const singlePromo = promoProducts.data.find(item => 
-            item._id == promoId);
+            item._id === promoId);
 
-            singlePromo.amount = action.payload.amount;
+          singlePromo.amount = action.payload.amount;
           cart.push(singlePromo);
-          return cart
+          return cart;
         }
-      }
+      };
 
       
       return [
-        ...newPromo()
+        ...newPromo(),
       ];
 
-      case REMOVE_PRODUCT: 
+    case REMOVE_PRODUCT: 
 
-      const id = parseInt(action.payload)
+      const id = parseInt(action.payload);
 
       cart = cart.filter(item => item._id !== id);
       return [
-        ...cart
+        ...cart,
       ];
-      case CHANGE_AMOUNT: 
+    case CHANGE_AMOUNT: 
       const prodId = action.payload._id;
 
       const newStatePart = cart.map(item => {
         if(item._id===prodId){
-        item.amount = action.payload.amount
-        return item
+          item.amount = action.payload.amount;
+          return item;
         } else {
-        return item;
+          return item;
         }
       });
 
@@ -157,6 +152,8 @@ export const reducer = (cart = [], action = {}) => {
       return [
         ...newStatePart,
       ];
+
+
     default:
       return cart;
   }

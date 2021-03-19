@@ -1,26 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FaFacebookSquare, FaInstagram, FaLinkedin} from "react-icons/fa"
-
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import {FaFacebookSquare, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 import styles from './Footer.module.scss';
 
 const Component = () => (
-    <div className={styles.footer}>
-      <div className={styles.info}>
-        <a>About us</a>
-        <a>Delivery</a>
-        <a>Contact</a>
-      </div>
-      <div className={styles.social__media}>
-        <a><FaFacebookSquare className={styles.social__media__icon}/></a>
-        <a><FaInstagram className={styles.social__media__icon}/></a>
-        <a><FaLinkedin className={styles.social__media__icon}/></a>
-      </div>
+  <div className={styles.footer}>
+    <div className={styles.info}>
+      <a href=''>About us</a>
+      <a href=''>Delivery</a>
+      <a href=''>Contact</a>
     </div>
+    <div className={styles.social__media}>
+      <a href='facebook.com'><FaFacebookSquare className={styles.social__media__icon}/></a>
+      <a href='instagram.com'><FaInstagram className={styles.social__media__icon}/></a>
+      <a href='linkedin.com'><FaLinkedin className={styles.social__media__icon}/></a>
+    </div>
+  </div>
 );
 
 Component.propTypes = {
@@ -28,18 +24,7 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Footer,
-  // Container as Footer,
   Component as FooterComponent,
 };

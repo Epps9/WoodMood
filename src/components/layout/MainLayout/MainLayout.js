@@ -1,21 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Footer} from '../../features/Footer/Footer';
-//import {Navbar} from '../Navbar/Navbar';
 import {Link} from 'react-router-dom';
-import {GiLindenLeaf} from "react-icons/gi";
-import {FaShoppingCart} from 'react-icons/fa'
-
-
-import clsx from 'clsx';
-
-import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
+import {GiLindenLeaf} from 'react-icons/gi';
+import {FaShoppingCart} from 'react-icons/fa';
 import styles from './MainLayout.module.scss';
+import clsx from 'clsx';
+import { connect } from 'react-redux';
 import { CartBoxProduct } from '../../features/CartBoxProduct/CartBoxProduct';
-
-
 
 class Component extends React.Component {
   constructor(props) {
@@ -23,30 +15,29 @@ class Component extends React.Component {
     this.handleMouseHover = this.handleMouseHover.bind(this);
     this.state = {
       hover: false,
-    }
+    };
   }
   
-    handleMouseHover() {
-      this.setState(this.toggleHoverState);
-    }
-  
-    toggleHoverState() {
-      return {
-        hover: !this.state.hover,
+  handleMouseHover() {
+    this.setState(this.toggleHoverState);
+  }
+
+  toggleHoverState() {
+    return {
+      hover: !this.state.hover,
+    };
+  }
+
+  getTotalCount(products) {
+    let totalCount = 0;
+
+    products.forEach(element => {
+      if(element) {
+        totalCount += element.amount;
       }
-    }
-
-    
-    getTotalCount(products) {
-      let totalCount = 0;
-
-      products.forEach(element => {
-        if(element) {
-        totalCount += element.amount
-        }
-      })
-      return totalCount;
-    }
+    });
+    return totalCount;
+  }
 
   render() {
 
@@ -80,29 +71,28 @@ class Component extends React.Component {
           </div>
         </div>
         <div className={styles.layout__background}>
-        {this.state.hover && 
+          {this.state.hover && 
         
           <div className={styles.cartbox} onMouseLeave={this.handleMouseHover}>
             {
               cartProducts.map(item => (
-              <CartBoxProduct key={item._id} {...item} />))  
+                <CartBoxProduct key={item._id} {...item} />))  
             }
-          <Link to='/cart' className={styles.cartlink}>See cart</Link>
-
+            <Link to='/cart' className={styles.cartlink}>See cart</Link>
           </div>
-
-        }
-        {children}
+          }
+          {children}
         </div>
         <Footer/>
       </div>
-    )
+    );
   }
-};
+}
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  cartProducts: PropTypes.node,
 };
 
 const mapStateToProps = state => ({
@@ -110,14 +100,9 @@ const mapStateToProps = state => ({
   cartProducts: state.cart,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  //Component as MainLayout,
   Container as MainLayout,
   Component as MainLayoutComponent,
 };
