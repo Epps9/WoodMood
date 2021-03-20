@@ -56,6 +56,7 @@ export const reducer = (cart = [], action = {}) => {
           const singleWatch = cart.find(item => item._id === watchId);
 
           singleWatch.amount = singleWatch.amount + action.payload.amount;
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
         } else {
           const singleWatch = watches.data.find(item => 
@@ -63,10 +64,11 @@ export const reducer = (cart = [], action = {}) => {
 
           singleWatch.amount = action.payload.amount;
           cart.push(singleWatch);
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
+
         }
       };
-
       
       return [
         ...newWatch(),
@@ -84,12 +86,14 @@ export const reducer = (cart = [], action = {}) => {
         if(brInCart){
           const singleBracelet = cart.find(item => item._id === braceletId);
           singleBracelet.amount = singleBracelet.amount + action.payload.amount;
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
         } else {
           const singleBracelet = bracelets.data.find(item => 
             item._id === braceletId);
             singleBracelet.amount = action.payload.amount;
           cart.push(singleBracelet);
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
         }
       };
@@ -111,6 +115,8 @@ export const reducer = (cart = [], action = {}) => {
           const singlePromo = cart.find(item => item._id === promoId);
 
           singlePromo.amount = singlePromo.amount + action.payload.amount;
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
+
           return cart;
         } else {
           const singlePromo = promoProducts.data.find(item => 
@@ -118,6 +124,7 @@ export const reducer = (cart = [], action = {}) => {
 
           singlePromo.amount = action.payload.amount;
           cart.push(singlePromo);
+          localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
         }
       };
@@ -129,16 +136,26 @@ export const reducer = (cart = [], action = {}) => {
 
     case REMOVE_PRODUCT: 
 
-      const id = parseInt(action.payload);
+      const id = action.payload;
 
-      cart = cart.filter(item => item._id !== id);
+      //cart = cart.filter(item => item._id !== id);
+
+      const carton = JSON.parse(localStorage.getItem('cart'));
+
+      const newCart = carton.data.filter(item => item._id !== id);
+
+      localStorage.setItem('cart', JSON.stringify({data: newCart}))
+
       return [
-        ...cart,
+        ...newCart,
       ];
+
     case CHANGE_AMOUNT: 
       const prodId = action.payload._id;
 
-      const newStatePart = cart.map(item => {
+      const cartProd = JSON.parse(localStorage.getItem('cart'));
+
+      const newStatePart = cartProd.data.map(item => {
         if(item._id===prodId){
           item.amount = action.payload.amount;
           return item;
@@ -147,7 +164,7 @@ export const reducer = (cart = [], action = {}) => {
         }
       });
 
-      localStorage.setItem('cart', JSON.stringify({newStatePart}));
+      localStorage.setItem('cart', JSON.stringify({data: newStatePart}))
 
       return [
         ...newStatePart,
