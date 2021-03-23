@@ -15,7 +15,7 @@ import { WatchView } from './components/views/WatchView/WatchView';
 import { BraceletView } from './components/views/BraceletView/BraceletView';
 import { Cart } from './components/views/Cart/Cart';
 import { Order } from './components/views/Order/Order';
-import { PromoView } from './components/views/PromoView/PromoView';
+import {PromoView} from './components/views/PromoView/PromoView';
 
 
 
