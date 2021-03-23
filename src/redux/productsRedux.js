@@ -51,6 +51,7 @@ export const reducer = (cart = [], action = {}) => {
 
       const watches = JSON.parse(localStorage.getItem('watches'));
 
+
       const newWatch = () => {
         if(inCart){
           const singleWatch = cart.find(item => item._id === watchId);
@@ -66,10 +67,9 @@ export const reducer = (cart = [], action = {}) => {
           cart.push(singleWatch);
           localStorage.setItem('cart', JSON.stringify({data: cart}));
           return cart;
-
         }
       };
-      
+
       return [
         ...newWatch(),
       ];

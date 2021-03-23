@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {API_URL} from '../../config';
 
 
 /* selectors */
@@ -23,7 +24,7 @@ export const fetchPromoProducts = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/promo')
+      .get(`${API_URL}/promo`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
         localStorage.setItem('promoProducts', JSON.stringify({data:res.data}));

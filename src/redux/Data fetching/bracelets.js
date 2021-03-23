@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../../config';
 
 
 /* selectors */
@@ -23,7 +24,7 @@ export const fetchBracelets = () => {
     dispatch(fetchStarted());
 
     Axios
-      .get('http://localhost:8000/api/bracelets')
+      .get(`${API_URL}/bracelets`)
       .then(res => {
         dispatch(fetchSuccess(res.data));
         localStorage.setItem('bracelets', JSON.stringify({data:res.data}));
